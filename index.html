@@ -389,7 +389,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
                     var typed = new Typed("#subtitle", {
-                        strings: ['乘风破浪会有时','One day,I will be in the waves in full speed,to Show my owan aspirations.'],
+                        strings: ['要有最朴素的生活与最遥远的梦想——七堇年。','总是有人要赢得，那为什么不能是我呢——科比'],
                         startDelay: 300,
                         typeSpeed: 100,
                         loop: true,
@@ -413,7 +413,7 @@
 
 
             <div class="cover-btns">
-                <a href="#articles" class="waves-effect waves-light btn">
+                <a href="#indexCard" class="waves-effect waves-light btn">
                     <i class="fa fa-angle-double-down"></i>开始阅读
                 </a>
 
@@ -464,29 +464,6 @@
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/images/1.jpg');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <div class="title center-align">力扣104. 二叉树的最大深度</div>
-                            <div class="description center-align">
-                                
-                                    二叉树的最大深度
-                                
-                            </div>
-                            <div class="cover-btns">
-                                <a href="/posts/d7d5.html" class="waves-effect waves-light btn"
-                                   target="_blank">
-                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            
-            <div class="carousel-item amber white-text carousel-post bg-cover"
                  style="background-image: url('/images/2.jpg');">
                 <div class="container">
                     <div class="row">
@@ -499,6 +476,29 @@
                             </div>
                             <div class="cover-btns">
                                 <a href="/posts/c129.html" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/images/1.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">力扣104. 二叉树的最大深度</div>
+                            <div class="description center-align">
+                                
+                                    二叉树的最大深度
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/posts/d7d5.html" class="waves-effect waves-light btn"
                                    target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
@@ -609,12 +609,12 @@
                         <div class="dream">
     
     <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
+        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;面朝大海，春暖花开
     </div>
     
     <div class="row">
         <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+            从明天起，做一个幸福的人。喂马，劈柴，周游世界。从明天起，关心粮食和蔬菜。我有一所房子，面朝大海，春暖花开。——罗伯·舒乐
         </div>
     </div>
 </div>
@@ -622,6 +622,42 @@
                     
 
                     
+
+                    
+                        <link rel="stylesheet" href="/libs/dplayer/DPlayer.min.css">
+<div class="video-player">
+    
+    <div class="title center-align">
+        <i class="fas fa-video-camera"></i>&nbsp;&nbsp;show
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="dplayer" class="dplayer-video"
+                    ></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/dplayer/DPlayer.min.js"></script>
+<script>
+    $(function () {
+        new DPlayer({
+            container: document.getElementById('dplayer'),
+            autoplay: 'false' === 'true',
+            theme: '#42b983',
+            loop: 'false' === 'true',
+            lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
+            preload: 'auto',
+            volume: Number('0.7'),
+            video: {
+                url: 'https://user.qzone.qq.com/2287226752',
+                pic: '',
+                thumbnails: ''
+            }
+        });
+    });
+</script>
 
                     
 
