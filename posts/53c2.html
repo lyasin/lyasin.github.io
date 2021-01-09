@@ -518,62 +518,53 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="股票问题合集"><a href="#股票问题合集" class="headerlink" title="股票问题合集"></a>股票问题合集</h1><blockquote>
-<p>初始化</p>
-<blockquote>
-<blockquote>
-</blockquote>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">dp[0][k][0]=0;
+                <h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a><strong>初始化</strong></h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">dp[0][k][0]=0;
 dp[0][k-1]=-prices[0] ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
-</blockquote>
-<p>状态转移方程</p>
-<blockquote>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
-              max(   选择 rest  ,             选择 sell      )
+<h4 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a><strong>状态转移方程</strong></h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
+           max(   选择 rest  ,             选择 sell      )
 
 解释：今天我没有持有股票，有两种可能：
 要么是我昨天就没有持有，然后今天选择 rest，所以我今天还是没有持有；
 要么是我昨天持有股票，但是今天我 sell 了，所以我今天没有持有股票了。
 
 dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
-              max(   选择 rest  ,           选择 buy         )
+           max(   选择 rest  ,           选择 buy         )
 
 解释：今天我持有着股票，有两种可能：
 要么我昨天就持有着股票，然后今天选择 rest，所以我今天还持有着股票；
 要么我昨天本没有持有，但今天我选择 buy，所以今天我就持有股票了。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-</blockquote>
-</blockquote>
-<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><blockquote>
-<p><img src="https://s3.ax1x.com/2021/01/08/suF2k9.png" alt="121. 买卖股票的最佳时机"></p>
-</blockquote>
-<blockquote>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {
+
+
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p><img src="https://s3.ax1x.com/2021/01/08/suF2k9.png" alt="121. 买卖股票的最佳时机"></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution {
 public:
-    int maxProfit(vector&lt;int&gt;&amp; prices) {
-        int n=prices.size();
-        if(n==0) return 0;
-        int dp[n][2];                               //用来记录利润，其中n为天数，0代表没有持有，1代表持有股票   
-        dp[0][0]=0;                                 //初始化
-        dp[0][1]=-prices[0] ;
-        for(int i=1;i&lt;n;i++){
-          dp[i][0]=max(dp[i-1][0],dp[i-1][1]+prices[i]);
-          dp[i][1]=max(dp[i-1][1],-prices[i]);
-        }
-        return dp[n - 1][0];
-    }
+ int maxProfit(vector&lt;int&gt;&amp; prices) {
+     int n=prices.size();
+     if(n==0) return 0;
+     int dp[n][2];                               //用来记录利润，其中n为天数，0代表没有持有，1代表持有股票   
+     dp[0][0]=0;                                 //初始化
+     dp[0][1]=-prices[0] ;
+     for(int i=1;i&lt;n;i++){
+       dp[i][0]=max(dp[i-1][0],dp[i-1][1]+prices[i]);
+       dp[i][1]=max(dp[i-1][1],-prices[i]);
+     }
+     return dp[n - 1][0];
+ }
 };<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<p>其他股票问题</p>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">122. 买卖股票的最佳时机 II</a></p>
+
+
+
+
+<h4 id="其他股票问题"><a href="#其他股票问题" class="headerlink" title="其他股票问题"></a>其他股票问题</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">122. 买卖股票的最佳时机 II</a></p>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/">123. 买卖股票的最佳时机 III</a></p>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/">188. 买卖股票的最佳时机 IV</a></p>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">309. 最佳买卖股票时机含冷冻期</a></p>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">714. 买卖股票的最佳时机含手续费</a></p>
-<p>本文摘抄自<a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E5%9B%A2%E7%81%AD%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98.html">labuladong</a></p>
+<p>参考<a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E5%9B%A2%E7%81%AD%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98.html">labuladong</a></p>
 
                 
             </div>

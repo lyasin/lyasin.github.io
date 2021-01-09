@@ -524,8 +524,7 @@
 <p>以<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber/">leedcode 198.打家劫舍</a>为例</p>
 <p><img src="http://qmle9wizc.hn-bkt.clouddn.com/%20198robber.png" alt="198robber"></p>
 <ul>
-<li><p>自底向上</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {
+<li><h4 id="自底向上"><a href="#自底向上" class="headerlink" title="自底向上"></a>自底向上</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {
 public:
     int rob(vector&lt;int&gt;&amp; nums) {
         int n=nums.size();
@@ -536,8 +535,8 @@ public:
         return dp[0];
     }
 };<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>自顶向下(不太会，这个算法应该是对的，但是执行时间超出限制)</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {
+<li><h4 id="自顶向下"><a href="#自顶向下" class="headerlink" title="自顶向下"></a>自顶向下</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">//不太会，这个算法应该是对的，但是执行时间超出限制
+class Solution {
 public:
     int rob(vector&lt;int&gt;&amp; nums) {
         return dp(nums, 0);
@@ -552,13 +551,14 @@ public:
     memo[start] = res;  // 记入备忘录
     return res;
     }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 </li>
 </ul>
-<h5 id="其他打家劫舍问题练习"><a href="#其他打家劫舍问题练习" class="headerlink" title="其他打家劫舍问题练习"></a>其他打家劫舍问题练习</h5><p>​    <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II</a></p>
+<h4 id="其他打家劫舍问题练习"><a href="#其他打家劫舍问题练习" class="headerlink" title="其他打家劫舍问题练习"></a>其他打家劫舍问题练习</h4><p>​    <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II</a></p>
 <p>​    <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-iii/">337. 打家劫舍 III</a></p>
+<p>参考<a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E5%9B%A2%E7%81%AD%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98.html">labuladong</a></p>
 
                 
             </div>

@@ -514,9 +514,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="VECTOR"><a href="#VECTOR" class="headerlink" title="VECTOR"></a>VECTOR</h4><ol>
-<li><p><strong>vector初始化</strong></p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt;a(10)   //定义具有10个整型元素的向量
+                <ol>
+<li><h4 id="vector初始化"><a href="#vector初始化" class="headerlink" title="vector初始化"></a><strong>vector初始化</strong></h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt;a(10)   //定义具有10个整型元素的向量
     
 vector&lt;int&gt;a(10,1) //定义具有10个整型元素的向量,且初值为1
     
@@ -574,8 +573,7 @@ a==b;			//b为向量，向量的比较操作还有 != &gt;= &gt; &lt;= &lt;<span
 </li>
 </ol>
 <ol start="2">
-<li><p><strong>对向量a添加元素的几种方式</strong></p>
-<ol>
+<li><h4 id="对向量a添加元素的几种方式"><a href="#对向量a添加元素的几种方式" class="headerlink" title="对向量a添加元素的几种方式"></a><strong>对向量a添加元素的几种方式</strong></h4><ol>
 <li><p>向向量a中添加元素</p>
   <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt;a;
 for(int i=0;i&lt;10;++i){a.push_back(i);}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
@@ -611,8 +609,7 @@ for(int i=0;i&lt;=b.size()-1;++i){cout&lt;&lt;b[i]&lt;&lt;endl;}<span aria-hidde
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a[6]={1,2,3,4,5,6};
 vector&lt;int&gt;b(a,a+4);
 for(vector&lt;int&gt;::iterator it=b.begin();it!=b.end();it++){cout&lt;&lt;*it&lt;&lt;"  ";}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><p><strong>几个常用的算法</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;algorithm&gt;
+<li><h4 id="几个常用的算法"><a href="#几个常用的算法" class="headerlink" title="几个常用的算法"></a><strong>几个常用的算法</strong></h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;algorithm&gt;
    
 sort(a.begin(),a.end());		 //对a中的从a.begin()（包括它）到a.end()（不包括它）的元素进行从小到大排列
    
