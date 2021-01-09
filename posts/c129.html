@@ -778,6 +778,61 @@ pid_t fork(void);<span aria-hidden="true" class="line-numbers-rows"><span></span
 </li>
 </ol>
 <hr>
+<h4 id="STL的allocator"><a href="#STL的allocator" class="headerlink" title="STL的allocator"></a>STL的allocator</h4><ul>
+<li>STL的分配器（allocator）用于封装STL容器在内存管理上的底层细节。在C++中，其内存配置和释放如下：<ul>
+<li>new运算分两个阶段：<ul>
+<li>调用::operator new配置内存</li>
+<li>调用对象构造函数构造对象内容</li>
+</ul>
+</li>
+<li>delete运算分两个阶段：<ul>
+<li>调用对象的析构函数</li>
+<li>调用::operator delete释放内存</li>
+</ul>
+</li>
+<li>为了精密分工，STL allocator将两个阶段操作区分开来：内存配置由alloc::allocate()负责，内存释放由alloc::deallocate负责；对象构造由alloc::construct()负责，对象析构由alloc::destroy负责。</li>
+<li>同时为了提升内存管理的效率，减少申请内存造成的内存碎片问题，SGI STL采用了两级配置器，当分配的空间大小超过128B时，会使用第一级空间配置器；小于128B时，将使用第一级空间配置器。第一级空间配置器直接使用malloc(),realloc(),free()函数进行内存空间的分配和释放，而第二级空间配置器采用了内存池技术，通过空闲链表来管理内存。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="C-中类成员的访问权限"><a href="#C-中类成员的访问权限" class="headerlink" title="C++中类成员的访问权限"></a>C++中类成员的访问权限</h4><p>public，protected，private。</p>
+<ul>
+<li>在类的内部（定义类的代码内部），无论成员被声明为无论成员被声明为 public、protected 还是 private，都是可以互相访问的，没有访问权限的限制。</li>
+<li>在类的外部（定义类的代码之外），只能通过对象访问成员，并且通过对象只能访问 public 属性的成员，不能访问 private、protected 属性的成员</li>
+</ul>
+<hr>
+<h4 id="struct和class"><a href="#struct和class" class="headerlink" title="struct和class"></a>struct和class</h4><blockquote>
+<p>struct和class都能声明含有各种变量和函数的数据结构，能够单继承，多继承从而实现多态，struct和class声明的类型还可以作为对方的父类</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">struct</th>
+<th align="center">class</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">默认继承权限和默认访问权限</td>
+<td align="center">public</td>
+<td align="center">private</td>
+</tr>
+<tr>
+<td align="left">能否用于定义模板类形参</td>
+<td align="center">不能</td>
+<td align="center">能，比如template &lt;class T, int i&gt;</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="C-源文件从文本到可执行文件经历的过程"><a href="#C-源文件从文本到可执行文件经历的过程" class="headerlink" title="C++源文件从文本到可执行文件经历的过程"></a>C++源文件从文本到可执行文件经历的过程</h4><p>对于C++源文件，从文本到可执行文件一般需要4个过程：</p>
+<ol>
+<li>预处理阶段：对源代码文件中包含关系（头文件），预编译语句（宏定义）进行分析和替换，生成预编译文件。</li>
+<li>编译阶段：将预处理后的预编译文件转换成特定汇编代码，生成汇编文件。</li>
+<li>汇编阶段：将编译阶段生成的汇编文件转化成机器码，生成可重定位目标文件。</li>
+<li>链接阶段：将多个目标文件及所需要的的库连接成最终的可执行目标文件。</li>
+</ol>
+<hr>
 
                 
             </div>

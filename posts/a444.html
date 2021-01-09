@@ -514,14 +514,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li><h4 id="vector初始化"><a href="#vector初始化" class="headerlink" title="vector初始化"></a><strong>vector初始化</strong></h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt;a(10)   //定义具有10个整型元素的向量
+                <p>[TOC]</p>
+<p>[TOC]</p>
+<h4 id="vector初始化"><a href="#vector初始化" class="headerlink" title="vector初始化"></a><strong>vector初始化</strong></h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt;a(10)   //定义具有10个整型元素的向量
     
 vector&lt;int&gt;a(10,1) //定义具有10个整型元素的向量,且初值为1
     
 vector&lt;int&gt;a(b);   //用向量b给向量a赋值，a的值完全等价于b的值
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
- <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int b[7]={1,2,3,4,5,6,7};
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int b[7]={1,2,3,4,5,6,7};
 vector&lt;int&gt; a(b,b+7）; //从数组中获得初值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;vector&gt;
 vector&lt;int&gt; a,b;
@@ -570,19 +571,18 @@ a.swap(b);		//b为向量，将a中的元素和b中的元素整体交换
 a==b;			//b为向量，向量的比较操作还有 != &gt;= &gt; &lt;= &lt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-</li>
-</ol>
-<ol start="2">
-<li><h4 id="对向量a添加元素的几种方式"><a href="#对向量a添加元素的几种方式" class="headerlink" title="对向量a添加元素的几种方式"></a><strong>对向量a添加元素的几种方式</strong></h4><ol>
+<h4 id="对向量a添加元素的几种方式"><a href="#对向量a添加元素的几种方式" class="headerlink" title="对向量a添加元素的几种方式"></a><strong>对向量a添加元素的几种方式</strong></h4><ol>
 <li><p>向向量a中添加元素</p>
-  <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt;a;
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt;a;
 for(int i=0;i&lt;10;++i){a.push_back(i);}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>从数组中选择元素向向量中添加</p>
+</li>
+</ol>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a[6]={1,2,3,4,5,6};
 vector&lt;int&gt; b;
-for(int i=0;i&lt;=4;++i){b.push_back(a[i]);}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><p>从现有向量中选择元素向向量中添加</p>
-</li>
+for(int i=0;i&lt;=4;++i){b.push_back(a[i]);}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>从现有向量中选择元素向向量中添加</li>
 </ol>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a[6]={1,2,3,4,5,6};
 vector&lt;int&gt;b;
@@ -608,18 +608,16 @@ for(int i=0;i&lt;=b.size()-1;++i){cout&lt;&lt;b[i]&lt;&lt;endl;}<span aria-hidde
 </ol>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a[6]={1,2,3,4,5,6};
 vector&lt;int&gt;b(a,a+4);
-for(vector&lt;int&gt;::iterator it=b.begin();it!=b.end();it++){cout&lt;&lt;*it&lt;&lt;"  ";}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><h4 id="几个常用的算法"><a href="#几个常用的算法" class="headerlink" title="几个常用的算法"></a><strong>几个常用的算法</strong></h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;algorithm&gt;
-   
+for(vector&lt;int&gt;::iterator it=b.begin();it!=b.end();it++){cout&lt;&lt;*it&lt;&lt;"  ";}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="几个常用的算法"><a href="#几个常用的算法" class="headerlink" title="几个常用的算法"></a><strong>几个常用的算法</strong></h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;algorithm&gt;
+
 sort(a.begin(),a.end());		 //对a中的从a.begin()（包括它）到a.end()（不包括它）的元素进行从小到大排列
-   
+
 reverse(a.begin(),a.end()); 	//对a中的从a.begin()（包括它）到a.end()（不包括它）的元素倒置，但不排列，如a中元素为1,3,2,4,倒置后为4,2,3,1
 
 copy(a.begin(),a.end(),b.begin()+1);	 //把a中的从a.begin()（包括它）到a.end()（不包括它）的元素复制到b中，从b.begin()+1的位置（包括它）开始复制，覆盖掉原有元素
 
  find(a.begin(),a.end(),10);	//在a中的从a.begin()（包括它）到a.end()（不包括它）的元素中查找10，若存在返回其在向量中的位置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ol>
 
                 
             </div>
