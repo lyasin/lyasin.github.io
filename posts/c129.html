@@ -501,7 +501,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
@@ -629,7 +637,10 @@
 </li>
 </ul>
 <p>示例</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">fun</span><span class="params">(<span class="keyword">char</span> *p)</span></span>{...}   <span class="comment">//函数fun</span></span><br><span class="line"><span class="keyword">char</span> *(*pf)(<span class="keyword">char</span> *p)；    <span class="comment">//函数指针pf</span></span><br><span class="line">pf=fun；                  <span class="comment">//函数指针pf指向函数fun</span></span><br><span class="line">pf(p)；					 <span class="comment">//通过函数指针pf调用函数fun</span></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">char *fun(char *p){...}   //函数fun
+char *(*pf)(char *p)；    //函数指针pf
+pf=fun；                  //函数指针pf指向函数fun
+pf(p)；					 //通过函数指针pf调用函数fun<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -677,11 +688,27 @@
 <ul>
 <li>假设有一个类</li>
 </ul>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>{</span></span><br><span class="line"></span><br><span class="line">​	   <span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">​	   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>{count&lt;&lt;<span class="string">"Base::a"</span>&lt;&lt;<span class="built_in">endl</span>;};</span><br><span class="line"></span><br><span class="line">​	   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>{count&lt;&lt;<span class="string">"Base::b"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">​	   }</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Base{
+
+​	   public:
+
+​	   virtual void a(){count&lt;&lt;"Base::a"&lt;&lt;endl;};
+
+​	   virtual void b(){count&lt;&lt;"Base::b"&lt;&lt;endl;
+
+​	   }
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>这样我们可以通过Base的实例来得到虚函数表</li>
 </ul>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span><span class="params">(*Fun)</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line">Base c;</span><br><span class="line">Fun pFun=<span class="literal">NULL</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"虚函数表地址："</span>&lt;&lt;(<span class="keyword">int</span>*)(&amp;c)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"虚函数表一第一个函数地址："</span>&lt;&lt;(<span class="keyword">int</span>*)*(<span class="keyword">int</span>*)(&amp;c)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">pFun=(Fun)*((<span class="keyword">int</span>*)*(<span class="keyword">int</span>*)(&amp;c));</span><br><span class="line">pFun();</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef void(*Fun)(void);
+Base c;
+Fun pFun=NULL;
+cout&lt;&lt;"虚函数表地址："&lt;&lt;(int*)(&amp;c)&lt;&lt;endl;
+cout&lt;&lt;"虚函数表一第一个函数地址："&lt;&lt;(int*)*(int*)(&amp;c)&lt;&lt;endl;
+pFun=(Fun)*((int*)*(int*)(&amp;c));
+pFun();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <ul>
@@ -689,7 +716,10 @@
 </ul>
 <p>虚函数表地址：0012FED4</p>
 <p>函数表一第一个函数地址：0044F148</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Base::a</span><br><span class="line"></span><br><span class="line">(Fun)*((<span class="keyword">int</span>*)*(<span class="keyword">int</span>*)(&amp;c)+<span class="number">0</span>);<span class="comment">//Base::a</span></span><br><span class="line">(Fun)*((<span class="keyword">int</span>*)*(<span class="keyword">int</span>*)(&amp;c)+<span class="number">1</span>);<span class="comment">//Base::b</span></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Base::a
+
+(Fun)*((int*)*(int*)(&amp;c)+0);//Base::a
+(Fun)*((int*)*(int*)(&amp;c)+1);//Base::b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <ul>
@@ -721,7 +751,9 @@
 <li>Fork:创建一个和当前进程映像一样的函数可以通过fork()系统调用：</li>
 </ul>
 <blockquote>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">fork</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;sys/types.h&gt;
+#include&lt;unistd.h&gt;
+pid_t fork(void);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <ul>
 <li>成功调用fork()会创建一个新的进程，它几乎与调用fork()的进程一模一样，这两个进程都会继续运行。在子进程中，成功的fork()调用会返回0。在父进程中fork()返回子进程的pid（port ID）。如果出现错误，fork()返回一个负值。</li>
