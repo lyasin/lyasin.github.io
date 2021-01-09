@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++基础知识（一）, C++,春招,学习,长安大学,C++工程师等">
+    <meta name="keywords" content="vector用法, C++,春招,学习,长安大学,C++工程师等">
     <meta name="description" content="永远相信奥特曼相信光">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++基础知识（一） | lyasin的博客</title>
+    <title>vector用法 | lyasin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -335,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://qmle9wizc.hn-bkt.clouddn.com/2000396.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://qmle9wizc.hn-bkt.clouddn.com/2000402.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++基础知识（一）</h1>
+                    <h1 class="description center-align post-title">vector用法</h1>
                 </div>
             </div>
         </div>
@@ -460,8 +460,8 @@
                                 <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                                <span class="chip bg-color">基础知识</span>
+                            <a href="/tags/vector%E7%94%A8%E6%B3%95/">
+                                <span class="chip bg-color">vector用法</span>
                             </a>
                         
                     </div>
@@ -485,7 +485,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-08
+                    2021-01-09
                 </div>
                 
 
@@ -514,270 +514,115 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[TOC]</p>
-<h4 id="static关键字的作用"><a href="#static关键字的作用" class="headerlink" title="static关键字的作用"></a>static关键字的作用</h4><ul>
-<li><p><strong>全局静态变量</strong>：在静态存储区，程序运行期间一直存在，自动初始化为0，在声明它的文件之外是不可见的。</p>
-</li>
-<li><p><strong>局部静态变量</strong>：函数内声明了静态变量，函数结束时也不会清楚，也会自动初始化为0，作用域是该函数内。</p>
-</li>
-<li><p><strong>静态函数</strong>：只能在声明的cpp内使用。</p>
-</li>
-<li><p><strong>类的静态成员</strong>：所有对象共享的成员。不需要this指针，并且不能和const一起使用，因为const需要this指针。</p>
-</li>
-<li><p><strong>类的静态函数</strong>：他仅能访问类的静态成员和静态函数，不能将静态成员函数定为虚函数。 需程序员手动指定初始化，否则编译不会报错，link会报错。修饰成员函数，用命名空间表示。</p>
-</li>
-</ul>
-<hr>
-<h4 id="C-和C的区别"><a href="#C-和C的区别" class="headerlink" title="C++和C的区别"></a>C++和C的区别</h4><ol>
-<li><p>C++是面向对象的编程语言，而C语言是面向过程的编程语言。</p>
-</li>
-<li><p>兼容C语言的部分。</p>
-<p>面向对象的C++。<a target="_blank" rel="noopener" href="https://blog.csdn.net/ruyue_ruyue/article/details/8211809">封装，继承，多态</a></p>
-<ul>
-<li><p>封装:隐藏对象的属性和实现细节，仅对外公开接口和对象进行交互，将数据和操作数据的方法进行有机结合。</p>
-<ul>
-<li>函数是封装的一种形式。</li>
-</ul>
-</li>
-<li><p>继承:它可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。其继承的过程，就是从一般到特别殊的过程。</p>
-<ul>
-<li> 继承概念的实现方式有三类：实现继承、接口继承和可视继承。</li>
-</ul>
-</li>
-<li><p>多态：允许你将父对象设置成为和一个或更多的他的子对象相等的技术，赋值之后，父对象就可以据当前赋值给它的子对象的特性以不同的方式运作。简单的说，就是一句话：允许将子类类型的指针赋值给父类类型的指针。</p>
-<ul>
-<li><p>实现多态，有二种方式，覆盖，重载。</p>
-<ol>
-<li><p>覆盖：是指子类重新定义父类的虚函数的做法。</p>
-</li>
-<li><p>重载：是指允许存在多个同名函数，而这些函数的参数表不同（或许参数个数不同，或许参数类型不同，或许两者都不同）。</p>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>泛型编程，模版、STL。</p>
-</li>
-</ol>
-<hr>
-<h4 id="C-中四种cast转换"><a href="#C-中四种cast转换" class="headerlink" title="C++中四种cast转换"></a>C++中四种cast转换</h4><ul>
-<li>C++中四种转化类型是static_cast,dynamic_cast,const_cast,reinterpret_cast。</li>
-</ul>
-<ol>
-<li><p><strong>static_cast</strong>:静态类型转换，一般代码中用的最多，用来转换常量类型，或者子类指针/引用转父类。多态向上转化，向下转化为知。</p>
-</li>
-<li><p><strong>const_static</strong>:将const变量修改为非const变量。</p>
-</li>
-<li><p><strong>dynamic_static</strong>:用于动态类型转化，只能用于含有虚函数的类。用于类层次间的向上和向下转化。只能转指针或引用，如果是向下转化，抓化失败时，对指针返回<br>NULL，对引用抛异常。</p>
-</li>
-<li><p><strong>reinterpret_cast</strong>:几乎什么都能转，但是容易出现问题。</p>
-</li>
-</ol>
-<hr>
-<h4 id="引用和指针的区别"><a href="#引用和指针的区别" class="headerlink" title="引用和指针的区别"></a>引用和指针的区别</h4><blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">指针</th>
-<th align="center">引用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">利用地址，它的值直接指向存在电脑存储器中另一个地方的值</td>
-<td align="center">引用是某一变量的别名，对引用的操作与对变量的操作完全一样</td>
-</tr>
-<tr>
-<td align="center">有自己的空间</td>
-<td align="center">只是一个别名</td>
-</tr>
-<tr>
-<td align="center">大小为4</td>
-<td align="center">大小为被引用对象的大小</td>
-</tr>
-<tr>
-<td align="center">可以被初始化为NULL</td>
-<td align="center">必须被初始化且必须是一个已有对象的引用</td>
-</tr>
-<tr>
-<td align="center">作为参数传递时，必须先解引用</td>
-<td align="center">不需要解引用</td>
-</tr>
-<tr>
-<td align="center">有const指针</td>
-<td align="center">没有const引用</td>
-</tr>
-<tr>
-<td align="center">可以指向其他对象</td>
-<td align="center">只能指向一个对象</td>
-</tr>
-<tr>
-<td align="center">多级</td>
-<td align="center">一级</td>
-</tr>
-<tr>
-<td align="center">返回动态分配的对象或内存时，必须使用指针，否则会内存泄漏</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-</blockquote>
-<p><strong>函数指针</strong></p>
-<ul>
-<li><p>定义：</p>
-<ul>
-<li>指向函数的指针变量</li>
-<li>首先是一个指针变量，该指针指向一个具体的函数</li>
-</ul>
-</li>
-<li><p>用途：</p>
-<ul>
-<li>调用函数和做函数的参数。比如回调函数。</li>
-</ul>
-</li>
-</ul>
-<p>示例</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">char *fun(char *p){...}   //函数fun
-char *(*pf)(char *p)；    //函数指针pf
-pf=fun；                  //函数指针pf指向函数fun
-pf(p)；					 //通过函数指针pf调用函数fun<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+                <h4 id="VECTOR"><a href="#VECTOR" class="headerlink" title="VECTOR"></a>VECTOR</h4><ol>
+<li><p><strong>vector初始化</strong></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt;a(10)   //定义具有10个整型元素的向量
+    
+vector&lt;int&gt;a(10,1) //定义具有10个整型元素的向量,且初值为1
+    
+vector&lt;int&gt;a(b);   //用向量b给向量a赋值，a的值完全等价于b的值
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int b[7]={1,2,3,4,5,6,7};
+vector&lt;int&gt; a(b,b+7）; //从数组中获得初值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;vector&gt;
+vector&lt;int&gt; a,b;
+
+a.assign(b.begin(),b.begin()+3);	//b为向量，将b的0-2个元素赋值给向量a
+
+a.assign(4,2);	//a含有4个值为2的元素
+
+a.back();	//返回a的最后一个元素
+
+a.front();	//返回a的第一个元素
+
+a[i];	//返回a的第i元素,当且仅当a存在
+
+a.clear();	//清空a中的元素
+
+a.empty();	//判断a是否为空，空则返回true，非空则返回false
+
+a.pop_back();	//删除a向量的最后一个元素
+
+a.erase(a.begin()+1,a.begin()+3);	//删除a中第一个（从第0个算起）到第二个元素，也就是说删除的元素从a.begin()+1算起（包括它）一直到a.begin()+3（不包括它）结束
+
+a.push_back(5);	//在a的最后一个向量后插入一个元素，其值为5
+
+vec3.insert(vec3.end(),vec1.begin(),vec1.end());
+vec3.insert(vec3.end(),vec2.begin(),vec2.end());	//合并
+
+a.insert(a.begin()+1,5);	//在a的第一个元素（从第0个算起）位置插入数值5,
+
+a.insert(a.begin()+1,3,5);	//在a的第一个元素（从第0个算起）位置插入3个数，其值都为5
+
+a.insert(a.begin()+1,b+3,b+6);	//b为数组，在a的第一个元素（从第0个元素算起）的位置插入b的第三个元素到第5个元素（不包括b+6）
+
+a.size();		//返回a中元素的个数
+
+a.capacity();	//返回a在内存中总共可以容纳的元素个数
+
+a.resize(10);	//将a的现有元素个数调整至10个，多则删，少则补，其值随机
+
+a.resize(10,2);	//将a的现有元素个数调整至10个，多则删，少则补，其值为2
+
+a.reserve(100);	//将a的容量扩充至100
+
+a.swap(b);		//b为向量，将a中的元素和b中的元素整体交换
+
+a==b;			//b为向量，向量的比较操作还有 != &gt;= &gt; &lt;= &lt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-
-
-<hr>
-<h4 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h4><ul>
-<li>智能指针主要用于管理在堆上分配的内存，它将普通的指针封装为一个栈对象，当栈对象的生存周期结束后，会在析构函数中释放掉申请的内存，从而防止内存泄漏。</li>
-</ul>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th>指针</th>
-<th align="left">特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>auto_ptr</td>
-<td align="left">存在潜在的内存崩溃问题。被unique_ptr替换。</td>
-</tr>
-<tr>
-<td>unique_ptr</td>
-<td align="left">实现独占式拥有或严格拥有概念，保证同一时间内只有一个智能指针可以指向该对象。对于避免资源泄露特别有用。</td>
-</tr>
-<tr>
-<td>shared_ptr</td>
-<td align="left">实现共享式拥有概念。多个智能指针可以指向相同对象。采用引用计数的方法，记录当前内存资源被多少个智能指针引用，该引用计数的内存在堆上分配。每新增一个引用计数加1，当过期时引用计数减1.只有引用计数为0时，智能指针才会自动释放引用的内存资源。循环利用，导致堆内存无法正确释放，从而导致内存泄漏。</td>
-</tr>
-<tr>
-<td>weak_ptr</td>
-<td align="left">协助shared_ptr，解决循环导致的内存泄漏。weak_ptr的构造函数不会修改引用计数的值，从而不会对对象的内存进行管理。</td>
-</tr>
-</tbody></table>
-</blockquote>
-<hr>
-<h4 id="野指针"><a href="#野指针" class="headerlink" title="野指针"></a>野指针</h4><blockquote>
-<p>指向一个已删除的对象或未申请访问受限内存区域的指针。</p>
-</blockquote>
-<hr>
-<h4 id="为什么析构函数必须是虚函数？为什么C-默认的虚构函数不是虚函数？"><a href="#为什么析构函数必须是虚函数？为什么C-默认的虚构函数不是虚函数？" class="headerlink" title="为什么析构函数必须是虚函数？为什么C++默认的虚构函数不是虚函数？"></a>为什么析构函数必须是虚函数？为什么C++默认的虚构函数不是虚函数？</h4><ul>
-<li><strong>虚函数：</strong></li>
-</ul>
-<p>主要作用：实现了多态的机制</p>
-<p>实现：通过一张虚函数表（Virtual Table)。</p>
-<ul>
-<li>假设有一个类</li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Base{
-
-​	   public:
-
-​	   virtual void a(){count&lt;&lt;"Base::a"&lt;&lt;endl;};
-
-​	   virtual void b(){count&lt;&lt;"Base::b"&lt;&lt;endl;
-
-​	   }
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>这样我们可以通过Base的实例来得到虚函数表</li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef void(*Fun)(void);
-Base c;
-Fun pFun=NULL;
-cout&lt;&lt;"虚函数表地址："&lt;&lt;(int*)(&amp;c)&lt;&lt;endl;
-cout&lt;&lt;"虚函数表一第一个函数地址："&lt;&lt;(int*)*(int*)(&amp;c)&lt;&lt;endl;
-pFun=(Fun)*((int*)*(int*)(&amp;c));
-pFun();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<ul>
-<li>运行结果如下：</li>
-</ul>
-<p>虚函数表地址：0012FED4</p>
-<p>函数表一第一个函数地址：0044F148</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Base::a
-
-(Fun)*((int*)*(int*)(&amp;c)+0);//Base::a
-(Fun)*((int*)*(int*)(&amp;c)+1);//Base::b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<ul>
-<li><strong>析构函数</strong></li>
-</ul>
-<p>与构造函数相对应，当对象结束其生命周期，如所载函数已调用完毕时，系统会自动执行析构函数。</p>
-<p>析构函数名也应与类名相同，只是在函数前面加一个位取反符~。它不能带任何参数，也没有返回值。只能有一个析构函数，不能重载。</p>
-<p>如果用户没有编写析构函数，编译系统会自动生成一个缺省的析构函数。</p>
-<ul>
-<li>类的析构顺序：</li>
-</ul>
-<ol>
-<li>派生类本身的析构函数</li>
+</li>
 </ol>
 <ol start="2">
-<li><p>对象成员的析构函数</p>
-</li>
-<li><p>基类析构函数</p>
-</li>
-</ol>
-<ul>
-<li>将可能会被继承的父类的析构函数设置为析构函数，可以保证当我们new一个子类，然后使用基类指针指向该子类对象，释放基类指针时可以释放掉子类的空间，防止内存泄露。</li>
-</ul>
-<ul>
-<li>C++默认的析构函数不是虚函数是因为虚函数需要额外的虚函数表和虚表指针，占用额外的内存。对于不会被继承的类来说，其虚构函数如果是虚函数，就会浪费内存。</li>
-</ul>
-<hr>
-<h4 id="fork函数（fork→派生）"><a href="#fork函数（fork→派生）" class="headerlink" title="fork函数（fork→派生）"></a>fork函数（fork→派生）</h4><ul>
-<li>Fork:创建一个和当前进程映像一样的函数可以通过fork()系统调用：</li>
-</ul>
-<blockquote>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;sys/types.h&gt;
-#include&lt;unistd.h&gt;
-pid_t fork(void);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<ul>
-<li>成功调用fork()会创建一个新的进程，它几乎与调用fork()的进程一模一样，这两个进程都会继续运行。在子进程中，成功的fork()调用会返回0。在父进程中fork()返回子进程的pid（port ID）。如果出现错误，fork()返回一个负值。</li>
-</ul>
-<ul>
-<li>最常见的fork()用法是创建一个新的进程，然后使用exec()载入二进制映像，替换当前的映像。在这种情况下fork了新的进程，而这个子进程会执行一个新的二进制可执行文件的映像。</li>
-</ul>
-<hr>
-<h4 id="map和set"><a href="#map和set" class="headerlink" title="map和set"></a>map和set</h4><ul>
-<li>map和set都是C++的关联容器，底层实现都是红黑树（RB-TREE）。由于map和set所开放的各种操作接口，RB-TREE也都提供了，所以几乎所有的map和set的操作行为，都是在转调RB-TREE的操作行为。</li>
-</ul>
-<ul>
-<li>map和set的区别在于：</li>
-</ul>
+<li><p><strong>对向量a添加元素的几种方式</strong></p>
 <ol>
-<li>map中的元素是key-value对，关键字起到索引的作用，值则表示与索引相关联的数据；set就是关键字的简单集合。</li>
-</ol>
-<ol start="2">
-<li><p>set的迭代器是const的，不允许修改元素的值；map允许修改value。map和set是根据关键字的排序来保证其有序性的，如果修改key的话，那就要先删除该键，然后调节平衡，再插入修改后的key。这样一来，严重破坏了map和set的结构，导致iterator失效，不知道指向改变前的位置还是改变后的位置。</p>
+<li><p>向向量a中添加元素</p>
+  <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt;a;
+for(int i=0;i&lt;10;++i){a.push_back(i);}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>从数组中选择元素向向量中添加</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a[6]={1,2,3,4,5,6};
+vector&lt;int&gt; b;
+for(int i=0;i&lt;=4;++i){b.push_back(a[i]);}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>从现有向量中选择元素向向量中添加</p>
 </li>
-<li><p>map支持下标操作，而set不支持。map可以用key做下标，map的下标运算符[ ]将关键码作为下标去执行查找。</p>
+</ol>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a[6]={1,2,3,4,5,6};
+vector&lt;int&gt;b;
+vector&lt;int&gt;c(a,a+4);
+for(vector&lt;int&gt;::iterator it=c.begin();it&lt;c.end();++it)
+{
+	b.push_back(*it);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="4">
+<li>从文件中读取元素向向量中添加</li>
+</ol>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">ifstream in("data.txt");
+vector&lt;int&gt;a;
+for(int i;in&gt;&gt;i){a.push_back(i);}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="5">
+<li>从向量中读取元素</li>
+</ol>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a[6]={1,2,3,4,5,6};
+vector&lt;int&gt;b(a,a+4);
+for(int i=0;i&lt;=b.size()-1;++i){cout&lt;&lt;b[i]&lt;&lt;endl;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="6">
+<li>通过迭代器方式读取</li>
+</ol>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a[6]={1,2,3,4,5,6};
+vector&lt;int&gt;b(a,a+4);
+for(vector&lt;int&gt;::iterator it=b.begin();it!=b.end();it++){cout&lt;&lt;*it&lt;&lt;"  ";}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p><strong>几个常用的算法</strong></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;algorithm&gt;
+   
+sort(a.begin(),a.end());		 //对a中的从a.begin()（包括它）到a.end()（不包括它）的元素进行从小到大排列
+   
+reverse(a.begin(),a.end()); 	//对a中的从a.begin()（包括它）到a.end()（不包括它）的元素倒置，但不排列，如a中元素为1,3,2,4,倒置后为4,2,3,1
+
+copy(a.begin(),a.end(),b.begin()+1);	 //把a中的从a.begin()（包括它）到a.end()（不包括它）的元素复制到b中，从b.begin()+1的位置（包括它）开始复制，覆盖掉原有元素
+
+ find(a.begin(),a.end(),10);	//在a中的从a.begin()（包括它）到a.end()（不包括它）的元素中查找10，若存在返回其在向量中的位置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
-<hr>
 
                 
             </div>
@@ -804,7 +649,7 @@ pid_t fork(void);<span aria-hidden="true" class="line-numbers-rows"><span></span
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lyasin.github.io/posts/c129.html">https://lyasin.github.io/posts/c129.html</a>
+                    <a href="https://lyasin.github.io/posts/a444.html">https://lyasin.github.io/posts/a444.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -846,8 +691,8 @@ pid_t fork(void);<span aria-hidden="true" class="line-numbers-rows"><span></span
                                     <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                                    <span class="chip bg-color">基础知识</span>
+                                <a href="/tags/vector%E7%94%A8%E6%B3%95/">
+                                    <span class="chip bg-color">vector用法</span>
                                 </a>
                             
                         </div>
@@ -1280,9 +1125,63 @@ pid_t fork(void);<span aria-hidden="true" class="line-numbers-rows"><span></span
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/a444.html">
+                    <div class="card-image">
+                        
+                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/2000402.jpg" class="responsive-img" alt="vector用法">
+                        
+                        <span class="card-title">vector用法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            vector 用法
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C/" class="post-category">
+                                    C++
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/vector%E7%94%A8%E6%B3%95/">
+                        <span class="chip bg-color">vector用法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/posts/eed8.html">
                     <div class="card-image">
@@ -1299,9 +1198,9 @@ pid_t fork(void);<span aria-hidden="true" class="line-numbers-rows"><span></span
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1327,62 +1226,6 @@ pid_t fork(void);<span aria-hidden="true" class="line-numbers-rows"><span></span
                     
                     <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
                         <span class="chip bg-color">动态规划</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/53c2.html">
-                    <div class="card-image">
-                        
-                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/2000398.jpg" class="responsive-img" alt="股票买卖">
-                        
-                        <span class="card-title">股票买卖</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            股票买卖问题合集
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-category">
-                                    动态规划
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96/">
-                        <span class="chip bg-color">股票买卖</span>
                     </a>
                     
                 </div>
