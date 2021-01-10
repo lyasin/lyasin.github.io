@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++基础知识二, C++,春招,学习,长安大学,C++工程师等">
+    <meta name="keywords" content="三道区间, C++,春招,学习,长安大学,C++工程师等">
     <meta name="description" content="永远相信奥特曼相信光">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++基础知识二 | lyasin的博客</title>
+    <title>三道区间 | lyasin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -335,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://qmle9wizc.hn-bkt.clouddn.com/2000396.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://qmle9wizc.hn-bkt.clouddn.com/2000403.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++基础知识二</h1>
+                    <h1 class="description center-align post-title">三道区间</h1>
                 </div>
             </div>
         </div>
@@ -460,8 +460,12 @@
                                 <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                                <span class="chip bg-color">基础知识</span>
+                            <a href="/tags/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/">
+                                <span class="chip bg-color">三道区间</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">贪心算法</span>
                             </a>
                         
                     </div>
@@ -472,7 +476,15 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C/" class="post-category">
+                            <a href="/categories/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/" class="post-category">
+                                三道区间
+                            </a>
+                        
+                            <a href="/categories/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="post-category">
+                                贪心算法
+                            </a>
+                        
+                            <a href="/categories/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/C/" class="post-category">
                                 C++
                             </a>
                         
@@ -485,7 +497,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-09
+                    2021-01-10
                 </div>
                 
 
@@ -514,67 +526,119 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[TOC]</p>
-<h4 id="头文件顺序"><a href="#头文件顺序" class="headerlink" title="头文件顺序"></a>头文件顺序</h4><p>对于include的头文件来说，如果在a.h中声明一个在文件b.h中定义的变量，而不引用b.h。那么要在a.c文件中引用b.h文件，并且要先引用b.h，后引用a.h，否则会报变量类型未声明错误。</p>
-<hr>
-<h4 id="include头文件双引号””和尖括号-lt-gt-的区别"><a href="#include头文件双引号””和尖括号-lt-gt-的区别" class="headerlink" title="include头文件双引号””和尖括号<>的区别"></a>include头文件双引号””和尖括号&lt;&gt;的区别</h4><p>编译器处理阶段查找头文件的路径不一样。</p>
+                <p>所谓区间问题，就是线段问题，让你合并所有线段、找出线段的交集等等。主要有两个技巧：</p>
+<p><strong>1、排序</strong>。常见的排序方法就是按照区间起点排序，或者先按照起点升序排序，若起点相同，则按照终点降序排序。当然，如果你非要按照终点排序，无非对称操作，本质都是一样的。</p>
+<p><strong>2、画图</strong>。就是说不要偷懒，勤动手，两个区间的相对位置到底有几种可能，不同的相对位置我们的代码应该怎么去处理。</p>
+<p>![leecode1228.删除被覆盖区间](<a target="_blank" rel="noopener" href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> leecode1228.删除被覆盖区间.png)</p>
+<h4 id="1288-删除被覆盖区间"><a href="#1288-删除被覆盖区间" class="headerlink" title="1288. 删除被覆盖区间"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-covered-intervals/">1288. 删除被覆盖区间</a></h4><p>![被覆盖区间](<a target="_blank" rel="noopener" href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> 被覆盖区间.png)</p>
+<p><strong>算法</strong></p>
 <ul>
-<li>对于双引号包含的头文件，查找头文件的顺序为：程序源文件所在目录→系统默认目录      （通常引用用户自定义的头文件）</li>
-<li>对于尖括号包含的头文件，查找头文件的顺序为：系统默认目录      （通常引用标准库自带的头文件）</li>
-</ul>
-<hr>
-<h4 id="malloc的原理"><a href="#malloc的原理" class="headerlink" title="malloc的原理"></a>malloc的原理</h4><p>molloc()函数用于动态内存分配。为了减少内存碎片和系统调用的开销，malloc采用内存池的方式，先申请大块内存作为堆区，然后将堆分成多个内存块，以块作为内存管理的基本单位。当用户申请内存时，直接从堆区分配一块合适的空闲块。molloc采用隐式链表结构将堆区成连续的，大小不一的块，包含已分配块和未分配块；同时molloc采用显示链表结构来管理所有的空闲块，即采用一个双向链表将空闲块连接起来，每一个空闲块记录了一个连续的，未分配的地址。</p>
-<p>当进行内存分配时，molloc会通过隐式链表遍历所有的空闲块，会选择满足要求的块进行分配；当进行内存合并时，molloc采用边界标记法，根据每个块的前后块是否已经分配来决定是否进行块合并。</p>
-<p>molloc在申请内存时，一般会通过brk或mmap系统调用进行申请。其中当申请内存小于128K时，会使用系统函数brk在堆区分配；而当申请内存大于128K时，会使用系统函数mmap在映射区分配。</p>
-<hr>
-<h4 id="C-的内存管理"><a href="#C-的内存管理" class="headerlink" title="C++的内存管理"></a>C++的内存管理</h4><p>C++中，虚拟内存分为代码段，数据段，BSS段，堆区，文件映射区，以及栈区六部分。</p>
-<table>
-<thead>
-<tr>
-<th align="left">代码段</th>
-<th>包括只读存储区和文本区，其中只读存储区存储字符串常量，文本区存储程序的机器代码</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">数据段</td>
-<td>存储程序中已初始化的全局变量和静态变量</td>
-</tr>
-<tr>
-<td align="left">bss段</td>
-<td>存储未初始化的全局变量和静态变量（全局+局部），以及所有被初始化为0的全局变量和静态变量</td>
-</tr>
-<tr>
-<td align="left">堆区</td>
-<td>调用new/molloc函数时在堆区动态分配内存，同时需要调用delete/free来手动释放申请的内存</td>
-</tr>
-<tr>
-<td align="left">映射区</td>
-<td>存储动态链接库以及调用mmap函数进行的文件映射</td>
-</tr>
-<tr>
-<td align="left">栈</td>
-<td>使用栈空间存储函数的返回地址，参数，局部变量，返回值</td>
-</tr>
-</tbody></table>
-<hr>
-<h4 id="内存泄漏（memory-leak）"><a href="#内存泄漏（memory-leak）" class="headerlink" title="内存泄漏（memory leak）"></a>内存泄漏（memory leak）</h4><ul>
-<li>内存泄漏：由于疏忽或错误造成了程序未能释放掉不在使用的内存的情况。应用程序分配某段内存后，由于设计错误，失去了对该段内存的控制，因而造成了内存的浪费。</li>
-<li>内存泄漏的分类：<ul>
-<li>堆内存泄漏（Heak leak）：程序运行中通过molloc，new等函数从堆中分配出一块内存，没有通过free，delete释放掉。</li>
-<li>系统资源泄漏（Resource leak）：程序使用系统分配的资源比如handle，socket等没有使用相应的函数释放掉。</li>
-<li>没有将基类的析构函数定义为虚函数，当基类指针指向子类对象时，如果基类的析构函数不是虚函数，那么子类的析构函数不会被调用，子类的资源没有正确释放</li>
+<li>对起点进行升序排序，然后终点进行降序排序</li>
+<li>将第一个区间放入新的vector</li>
+<li>比较第一个区间和第二个区间<ul>
+<li>如果第二个区间的终点小于等于第一个区间的终点，被覆盖</li>
+<li>如果第二个区间的终点小于第一个区间的终点，没有被覆盖，将第二个区间装入新vector</li>
 </ul>
 </li>
-<li>判断内存是否泄漏我们一方面可以使用linux环境下的内存泄漏检查工具Valgrind，另一方面我们在写代码是可以添加内存申请和释放的统计功能，统计当前申请和释放的内存是否一致，以此来判断内存是否泄漏。</li>
+<li>比较第n个区间和第n+1个区间（n&lt;intervals.size()-2）</li>
 </ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {
+public:
+    int removeCoveredIntervals(vector&lt;vector&lt;int&gt;&gt;&amp; intervals) {
+        if(intervals.empty())return {};
+        //注意要先排序
+        sort(intervals.begin(),intervals.end());
+        vector&lt;vector&lt;int&gt;&gt; result;
+        result.push_back(intervals[0]);
+        int n=intervals.size();
+        for(int i=1;i&lt;n;++i){
+            if(intervals[i][0]&gt;=result.back()[0]&amp;&amp;intervals[i][1]&lt;=result.back()[1]){//删除区间
+                continue;
+            }else{
+                result.push_back(intervals[i]);
+            }
+        }
+        return result.size();
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <hr>
-<h4 id="段错误"><a href="#段错误" class="headerlink" title="段错误"></a>段错误</h4><p>段错误：访问的内存超出了系统所给这个程序的内存空间。</p>
-<p>段错误通常发生在访问非法内存地址的时候，具体来说分为以下情况：</p>
+<p>![leecode56.合并区间](<a target="_blank" rel="noopener" href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> leecode56.合并区间.png)</p>
+<h4 id="56-合并区间"><a href="#56-合并区间" class="headerlink" title="56. 合并区间"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-intervals/">56. 合并区间</a></h4><p><strong>算法</strong></p>
 <ul>
-<li>使用野指针</li>
-<li>试图修改字符串常量的内容</li>
+<li>与上一题类似，先对起点进行升序排序，再对终点进行降序排序</li>
+<li>比较第一个区间和第二个区间（有三种情况）<ul>
+<li>第二个区间被第一个区间覆盖</li>
+<li>第二个区间与第二个区间相交，更新区间</li>
+<li>第二个区间与第一个区间无共同点，返回第二个区间</li>
 </ul>
+</li>
+<li>比较第n+1个区间和第n个区间（n&lt;intervals.size()-2）</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; merge(vector&lt;vector&lt;int&gt;&gt;&amp; intervals) {
+        if(intervals.size()==0) return { };
+        sort(intervals.begin(),intervals.end());
+        vector&lt;vector&lt;int&gt;&gt; result;
+        int x,y;
+        result.push_back(intervals[0]);
+        int n=intervals.size();
+        for(int i=1;i&lt;n;i++){
+            if(intervals[i][1]&lt;=result.back()[1])  continue;
+            if(intervals[i][0]&gt;result.back()[1])  result.push_back(intervals[i]);
+            if(intervals[i][0]&lt;=result.back()[1]&amp;&amp;intervals[i][1]&gt;=result.back()[1]) {
+            x=result.back()[0];y=intervals[i][1];
+            result.pop_back();
+            result.push_back({x,y});}
+        }
+        return result;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <hr>
+<p>![leecode986. 区间列表的交集](<a target="_blank" rel="noopener" href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> leecode986. 区间列表的交集.png)</p>
+<h4 id="986-区间列表的交集"><a href="#986-区间列表的交集" class="headerlink" title="986. 区间列表的交集"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/interval-list-intersections/">986. 区间列表的交集</a></h4><p><strong>做题思路</strong></p>
+<ul>
+<li><p>分析不存在交集的情况，得出存在交集的情况</p>
+<p>![ ](<a target="_blank" rel="noopener" href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> 交集.png)</p>
+<p>显而易见，当a1&gt;b2 || a2&lt;b1时不存在交集。所以a1&lt;=b2 &amp;&amp;a2&gt;=b1时存在交集</p>
+</li>
+<li><p>若交集存在</p>
+<p>![交集存在](<a target="_blank" rel="noopener" href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> 交集存在.png)</p>
+<p>很容易得到交集为[max(a1,b1),min(a2,b2)]</p>
+</li>
+<li><p>得到交集以后该移动a,还是移动b，取决于a2,b2，假如a2&gt;b2，则移动b2，假如b2&gt;a2，则移动a2。</p>
+</li>
+</ul>
+<p>这样，问题就解决了。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; intervalIntersection(vector&lt;vector&lt;int&gt;&gt;&amp; a, vector&lt;vector&lt;int&gt;&gt;&amp; b) {
+        if(a.empty()||b.empty()) return {};
+        int x,y;
+        int an=a.size();
+        int bn=b.size();
+        vector&lt;vector&lt;int&gt;&gt; result;
+        int i=0;int j=0;
+        while(i&lt;an&amp;&amp;j&lt;bn){
+            if(a[i][0]&lt;=b[j][1]&amp;&amp;a[i][1]&gt;=b[j][0]){
+                x=max(a[i][0],b[j][0]);
+                y=min(a[i][1],b[j][1]);
+                result.push_back({x,y});
+            }
+            if(a[i][1]&gt;b[j][1]) ++j;
+            else ++i;
+        }
+        return result;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Eb6ewVajH56cUlY9LetRJw">参考labuladong</a></p>
 
                 
             </div>
@@ -601,7 +665,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lyasin.github.io/posts/1334.html">https://lyasin.github.io/posts/1334.html</a>
+                    <a href="https://lyasin.github.io/posts/248c.html">https://lyasin.github.io/posts/248c.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -643,8 +707,12 @@
                                     <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                                    <span class="chip bg-color">基础知识</span>
+                                <a href="/tags/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/">
+                                    <span class="chip bg-color">三道区间</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">贪心算法</span>
                                 </a>
                             
                         </div>
@@ -1077,9 +1145,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/248c.html">
                     <div class="card-image">
@@ -1096,9 +1165,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1119,6 +1188,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1145,18 +1215,18 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a444.html">
+                <a href="/posts/1334.html">
                     <div class="card-image">
                         
-                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/2000402.jpg" class="responsive-img" alt="vector用法">
+                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/2000396.jpg" class="responsive-img" alt="C++基础知识二">
                         
-                        <span class="card-title">vector用法</span>
+                        <span class="card-title">C++基础知识二</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vector 用法
+                            C++的基础知识
                         
                     </div>
                     <div class="publish-info">
@@ -1182,8 +1252,8 @@
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/vector%E7%94%A8%E6%B3%95/">
-                        <span class="chip bg-color">vector用法</span>
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">基础知识</span>
                     </a>
                     
                 </div>

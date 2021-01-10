@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>三道区间</title>
+      <link href="posts/248c.html"/>
+      <url>posts/248c.html</url>
+      
+        <content type="html"><![CDATA[<p>所谓区间问题，就是线段问题，让你合并所有线段、找出线段的交集等等。主要有两个技巧：</p><p><strong>1、排序</strong>。常见的排序方法就是按照区间起点排序，或者先按照起点升序排序，若起点相同，则按照终点降序排序。当然，如果你非要按照终点排序，无非对称操作，本质都是一样的。</p><p><strong>2、画图</strong>。就是说不要偷懒，勤动手，两个区间的相对位置到底有几种可能，不同的相对位置我们的代码应该怎么去处理。</p><p>![leecode1228.删除被覆盖区间](<a href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> leecode1228.删除被覆盖区间.png)</p><h4 id="1288-删除被覆盖区间"><a href="#1288-删除被覆盖区间" class="headerlink" title="1288. 删除被覆盖区间"></a><a href="https://leetcode-cn.com/problems/remove-covered-intervals/">1288. 删除被覆盖区间</a></h4><p>![被覆盖区间](<a href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> 被覆盖区间.png)</p><p><strong>算法</strong></p><ul><li>对起点进行升序排序，然后终点进行降序排序</li><li>将第一个区间放入新的vector</li><li>比较第一个区间和第二个区间<ul><li>如果第二个区间的终点小于等于第一个区间的终点，被覆盖</li><li>如果第二个区间的终点小于第一个区间的终点，没有被覆盖，将第二个区间装入新vector</li></ul></li><li>比较第n个区间和第n+1个区间（n&lt;intervals.size()-2）</li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {public:    int removeCoveredIntervals(vector&lt;vector&lt;int&gt;&gt;&amp; intervals) {        if(intervals.empty())return {};        //注意要先排序        sort(intervals.begin(),intervals.end());        vector&lt;vector&lt;int&gt;&gt; result;        result.push_back(intervals[0]);        int n=intervals.size();        for(int i=1;i&lt;n;++i){            if(intervals[i][0]&gt;=result.back()[0]&amp;&amp;intervals[i][1]&lt;=result.back()[1]){//删除区间                continue;            }else{                result.push_back(intervals[i]);            }        }        return result.size();    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><p>![leecode56.合并区间](<a href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> leecode56.合并区间.png)</p><h4 id="56-合并区间"><a href="#56-合并区间" class="headerlink" title="56. 合并区间"></a><a href="https://leetcode-cn.com/problems/merge-intervals/">56. 合并区间</a></h4><p><strong>算法</strong></p><ul><li>与上一题类似，先对起点进行升序排序，再对终点进行降序排序</li><li>比较第一个区间和第二个区间（有三种情况）<ul><li>第二个区间被第一个区间覆盖</li><li>第二个区间与第二个区间相交，更新区间</li><li>第二个区间与第一个区间无共同点，返回第二个区间</li></ul></li><li>比较第n+1个区间和第n个区间（n&lt;intervals.size()-2）</li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {public:    vector&lt;vector&lt;int&gt;&gt; merge(vector&lt;vector&lt;int&gt;&gt;&amp; intervals) {        if(intervals.size()==0) return { };        sort(intervals.begin(),intervals.end());        vector&lt;vector&lt;int&gt;&gt; result;        int x,y;        result.push_back(intervals[0]);        int n=intervals.size();        for(int i=1;i&lt;n;i++){            if(intervals[i][1]&lt;=result.back()[1])  continue;            if(intervals[i][0]&gt;result.back()[1])  result.push_back(intervals[i]);            if(intervals[i][0]&lt;=result.back()[1]&amp;&amp;intervals[i][1]&gt;=result.back()[1]) {            x=result.back()[0];y=intervals[i][1];            result.pop_back();            result.push_back({x,y});}        }        return result;    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><p>![leecode986. 区间列表的交集](<a href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> leecode986. 区间列表的交集.png)</p><h4 id="986-区间列表的交集"><a href="#986-区间列表的交集" class="headerlink" title="986. 区间列表的交集"></a><a href="https://leetcode-cn.com/problems/interval-list-intersections/">986. 区间列表的交集</a></h4><p><strong>做题思路</strong></p><ul><li><p>分析不存在交集的情况，得出存在交集的情况</p><p>![ ](<a href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> 交集.png)</p><p>显而易见，当a1&gt;b2 || a2&lt;b1时不存在交集。所以a1&lt;=b2 &amp;&amp;a2&gt;=b1时存在交集</p></li><li><p>若交集存在</p><p>![交集存在](<a href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> 交集存在.png)</p><p>很容易得到交集为[max(a1,b1),min(a2,b2)]</p></li><li><p>得到交集以后该移动a,还是移动b，取决于a2,b2，假如a2&gt;b2，则移动b2，假如b2&gt;a2，则移动a2。</p></li></ul><p>这样，问题就解决了。</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {public:    vector&lt;vector&lt;int&gt;&gt; intervalIntersection(vector&lt;vector&lt;int&gt;&gt;&amp; a, vector&lt;vector&lt;int&gt;&gt;&amp; b) {        if(a.empty()||b.empty()) return {};        int x,y;        int an=a.size();        int bn=b.size();        vector&lt;vector&lt;int&gt;&gt; result;        int i=0;int j=0;        while(i&lt;an&amp;&amp;j&lt;bn){            if(a[i][0]&lt;=b[j][1]&amp;&amp;a[i][1]&gt;=b[j][0]){                x=max(a[i][0],b[j][0]);                y=min(a[i][1],b[j][1]);                result.push_back({x,y});            }            if(a[i][1]&gt;b[j][1]) ++j;            else ++i;        }        return result;    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><p><a href="https://mp.weixin.qq.com/s/Eb6ewVajH56cUlY9LetRJw">参考labuladong</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 三道区间 </category>
+          
+          <category> 贪心算法 </category>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 三道区间 </tag>
+            
+            <tag> 贪心算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++基础知识二</title>
       <link href="posts/1334.html"/>
       <url>posts/1334.html</url>
