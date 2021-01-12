@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>sums问题</title>
+      <link href="posts/32c7.html"/>
+      <url>posts/32c7.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="一、twoSum-问题"><a href="#一、twoSum-问题" class="headerlink" title="一、twoSum 问题"></a>一、twoSum 问题</h4><p>假设输入一个数组 <code>nums</code> 和一个目标和 <code>target</code>，<code>nums</code> 中可能有多对儿元素之和都等于 <code>target</code>，请你的算法返回所有和为 <code>target</code> 的元素对儿，其中不能出现重复。</p><p><strong>算法</strong></p><ul><li>首先对数组进行排序</li><li>sum=nums[first]+nums[end]，与target比较大小(first=0,end=nums.size())<ul><li>若大于target，则end–</li><li>若小于target，则first++</li><li>若等于，即为所求组合</li></ul></li><li>每次取值，判断是否nums[first]==nums[first++]，nums[end]==nums[end–]。</li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;vector&lt;int&gt;&gt; twoSumTarget(vector&lt;int&gt;&amp; nums, int target) {    // nums 数组必须有序    sort(nums.begin(), nums.end());    int lo = 0, hi = nums.size() - 1;    vector&lt;vector&lt;int&gt;&gt; res;    while (lo &lt; hi) {        int sum = nums[lo] + nums[hi];        int left = nums[lo], right = nums[hi];        if (sum &lt; target) {            while (lo &lt; hi &amp;&amp; nums[lo] == left) lo++;        } else if (sum &gt; target) {            while (lo &lt; hi &amp;&amp; nums[hi] == right) hi--;        } else {            res.push_back({left, right});            while (lo &lt; hi &amp;&amp; nums[lo] == left) lo++;            while (lo &lt; hi &amp;&amp; nums[hi] == right) hi--;        }    }    return res;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><h4 id="二、Threesum问题"><a href="#二、Threesum问题" class="headerlink" title="二、Threesum问题"></a>二、Threesum问题</h4><p><a href="https://leetcode-cn.com/problems/3sum/">15. 三数之和</a></p><p>![3sum](<a href="http://qmle9wizc.hn-bkt.clouddn.com/">http://qmle9wizc.hn-bkt.clouddn.com/</a> 3sum.png)</p><p>泛化一下题目，不要光和为 0 的三元组了，计算和为 <code>target</code> 的三元组吧，同上面的 <code>twoSum</code> 一样，也不允许重复的结果</p><p><strong>算法</strong></p><ul><li>首先对数组进行排序，然后取第一个值，后面的问题就变为twosum问题</li><li>sum=nums[first]+nums[end]，与target比较大小(first=0,end=nums.size())<ul><li>若大于target，则end–</li><li>若小于target，则first++</li><li>若等于，即为所求组合</li></ul></li><li>每次取值，判断是否nums[first]==nums[first++]，nums[end]==nums[end–]。</li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">/* 从 nums[start] 开始，计算有序数组 * nums 中所有和为 target 的二元组 */vector&lt;vector&lt;int&gt;&gt; twoSumTarget(    vector&lt;int&gt;&amp; nums, int start, int target) {    // 左指针改为从 start 开始，其他不变    int lo = start, hi = nums.size() - 1;    vector&lt;vector&lt;int&gt;&gt; res;    while (lo &lt; hi) {        ...    }    return res;}/* 计算数组 nums 中所有和为 target 的三元组 */vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int target) {    // 数组得排个序    sort(nums.begin(), nums.end());    int n = nums.size();    vector&lt;vector&lt;int&gt;&gt; res;    // 穷举 threeSum 的第一个数    for (int i = 0; i &lt; n; i++) {        // 对 target - nums[i] 计算 twoSum        vector&lt;vector&lt;int&gt;&gt;             tuples = twoSumTarget(nums, i + 1, target - nums[i]);        // 如果存在满足条件的二元组，再加上 nums[i] 就是结果三元组        for (vector&lt;int&gt;&amp; tuple : tuples) {            tuple.push_back(nums[i]);            res.push_back(tuple);        }        // 跳过第一个数字重复的情况，否则会出现重复结果        while (i &lt; n - 1 &amp;&amp; nums[i] == nums[i + 1]) i++;    }    return res;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><h4 id="三、Foursum问题"><a href="#三、Foursum问题" class="headerlink" title="三、Foursum问题"></a>三、Foursum问题</h4><p>根据Threesum问题，很简单，我们可以套娃解决<code>4sum</code>，<code>5sum</code>，甚至是<code>nsum</code>的问题了</p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> sums </category>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> sums </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>三道区间</title>
       <link href="posts/248c.html"/>
       <url>posts/248c.html</url>
@@ -232,7 +261,7 @@
       <link href="posts/e20b.html"/>
       <url>posts/e20b.html</url>
       
-        <content type="html"><![CDATA[<h1 id="我的第一篇博文！！！"><a href="#我的第一篇博文！！！" class="headerlink" title="我的第一篇博文！！！"></a>我的第一篇博文！！！</h1><p>忙活了一天终于弄好了，嘿嘿</p><p><a href="https://yafine-blog.cn/posts/4ab2.html">搭建博客</a></p><p><img src="https://s3.ax1x.com/2021/01/08/smz1eI.jpg" alt="药酱"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="我的第一篇博文！！！"><a href="#我的第一篇博文！！！" class="headerlink" title="我的第一篇博文！！！"></a>我的第一篇博文！！！</h1><p>忙活了一天终于弄好了，嘿嘿</p><p><a href="https://yafine-blog.cn/posts/4ab2.html">搭建博客</a></p><p><a href="https://www.itrhx.com/2018/08/27/A04-Hexo-blog-topic-personalization/">博客个性化1</a></p><p><a href="https://www.eternitywith.xyz/posts/1cf0.html">博客个性化2</a></p><p><img src="https://s3.ax1x.com/2021/01/08/smz1eI.jpg" alt="药酱"></p>]]></content>
       
       
       <categories>
