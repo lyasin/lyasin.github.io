@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++基础知识（二）, C++,春招,学习,长安大学,C++工程师等">
+    <meta name="keywords" content="操作系统, C++,春招,学习,长安大学,C++工程师等">
     <meta name="description" content="永远相信奥特曼相信光">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++基础知识（二） | lyasin的博客</title>
+    <title>操作系统 | lyasin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -384,7 +384,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++基础知识（二）</h1>
+                    <h1 class="description center-align post-title">操作系统</h1>
                 </div>
             </div>
         </div>
@@ -500,8 +500,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
                             </a>
                         
                             <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
@@ -558,66 +558,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="头文件顺序"><a href="#头文件顺序" class="headerlink" title="头文件顺序"></a>头文件顺序</h4><p>对于include的头文件来说，如果在a.h中声明一个在文件b.h中定义的变量，而不引用b.h。那么要在a.c文件中引用b.h文件，并且要先引用b.h，后引用a.h，否则会报变量类型未声明错误。</p>
-<hr>
-<h4 id="include头文件双引号””和尖括号-lt-gt-的区别"><a href="#include头文件双引号””和尖括号-lt-gt-的区别" class="headerlink" title="include头文件双引号””和尖括号<>的区别"></a>include头文件双引号””和尖括号&lt;&gt;的区别</h4><p>编译器处理阶段查找头文件的路径不一样。</p>
-<ul>
-<li>对于双引号包含的头文件，查找头文件的顺序为：程序源文件所在目录→系统默认目录      （通常引用用户自定义的头文件）</li>
-<li>对于尖括号包含的头文件，查找头文件的顺序为：系统默认目录      （通常引用标准库自带的头文件）</li>
-</ul>
-<hr>
-<h4 id="malloc的原理"><a href="#malloc的原理" class="headerlink" title="malloc的原理"></a>malloc的原理</h4><p>molloc()函数用于动态内存分配。为了减少内存碎片和系统调用的开销，malloc采用内存池的方式，先申请大块内存作为堆区，然后将堆分成多个内存块，以块作为内存管理的基本单位。当用户申请内存时，直接从堆区分配一块合适的空闲块。molloc采用隐式链表结构将堆区成连续的，大小不一的块，包含已分配块和未分配块；同时molloc采用显示链表结构来管理所有的空闲块，即采用一个双向链表将空闲块连接起来，每一个空闲块记录了一个连续的，未分配的地址。</p>
-<p>当进行内存分配时，molloc会通过隐式链表遍历所有的空闲块，会选择满足要求的块进行分配；当进行内存合并时，molloc采用边界标记法，根据每个块的前后块是否已经分配来决定是否进行块合并。</p>
-<p>molloc在申请内存时，一般会通过brk或mmap系统调用进行申请。其中当申请内存小于128K时，会使用系统函数brk在堆区分配；而当申请内存大于128K时，会使用系统函数mmap在映射区分配。</p>
-<hr>
-<h4 id="C-的内存管理"><a href="#C-的内存管理" class="headerlink" title="C++的内存管理"></a>C++的内存管理</h4><p>C++中，虚拟内存分为代码段，数据段，BSS段，堆区，文件映射区，以及栈区六部分。</p>
-<table>
-<thead>
-<tr>
-<th align="left">代码段</th>
-<th>包括只读存储区和文本区，其中只读存储区存储字符串常量，文本区存储程序的机器代码</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">数据段</td>
-<td>存储程序中已初始化的全局变量和静态变量</td>
-</tr>
-<tr>
-<td align="left">bss段</td>
-<td>存储未初始化的全局变量和静态变量（全局+局部），以及所有被初始化为0的全局变量和静态变量</td>
-</tr>
-<tr>
-<td align="left">堆区</td>
-<td>调用new/molloc函数时在堆区动态分配内存，同时需要调用delete/free来手动释放申请的内存</td>
-</tr>
-<tr>
-<td align="left">映射区</td>
-<td>存储动态链接库以及调用mmap函数进行的文件映射</td>
-</tr>
-<tr>
-<td align="left">栈</td>
-<td>使用栈空间存储函数的返回地址，参数，局部变量，返回值</td>
-</tr>
-</tbody></table>
-<hr>
-<h4 id="内存泄漏（memory-leak）"><a href="#内存泄漏（memory-leak）" class="headerlink" title="内存泄漏（memory leak）"></a>内存泄漏（memory leak）</h4><ul>
-<li>内存泄漏：由于疏忽或错误造成了程序未能释放掉不在使用的内存的情况。应用程序分配某段内存后，由于设计错误，失去了对该段内存的控制，因而造成了内存的浪费。</li>
-<li>内存泄漏的分类：<ul>
-<li>堆内存泄漏（Heak leak）：程序运行中通过molloc，new等函数从堆中分配出一块内存，没有通过free，delete释放掉。</li>
-<li>系统资源泄漏（Resource leak）：程序使用系统分配的资源比如handle，socket等没有使用相应的函数释放掉。</li>
-<li>没有将基类的析构函数定义为虚函数，当基类指针指向子类对象时，如果基类的析构函数不是虚函数，那么子类的析构函数不会被调用，子类的资源没有正确释放</li>
-</ul>
-</li>
-<li>判断内存是否泄漏我们一方面可以使用linux环境下的内存泄漏检查工具Valgrind，另一方面我们在写代码是可以添加内存申请和释放的统计功能，统计当前申请和释放的内存是否一致，以此来判断内存是否泄漏。</li>
-</ul>
-<hr>
-<h4 id="段错误"><a href="#段错误" class="headerlink" title="段错误"></a>段错误</h4><p>段错误：访问的内存超出了系统所给这个程序的内存空间。</p>
-<p>段错误通常发生在访问非法内存地址的时候，具体来说分为以下情况：</p>
-<ul>
-<li>使用野指针</li>
-<li>试图修改字符串常量的内容</li>
-</ul>
-<hr>
+                <h4 id="线程和进程"><a href="#线程和进程" class="headerlink" title="线程和进程"></a>线程和进程</h4><p>基本概念：</p>
+<blockquote>
+<p>进程是对运行时程序的封装，是对系统进行资源调度和分配的基本单位，实现了操作系统的并发</p>
+<p>线程是进程的子任务，是CPU调度和分派的基本单位，用于保证程序的实时性，实现进程内部的并发。</p>
+</blockquote>
 
                 
             </div>
@@ -682,8 +627,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
                                 </a>
                             
                                 <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
