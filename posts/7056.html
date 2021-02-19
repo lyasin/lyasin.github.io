@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2021.2.2, C++,春招,学习,长安大学,C++工程师等">
+    <meta name="keywords" content="计算机网络, C++,春招,学习,长安大学,C++工程师等">
     <meta name="description" content="永远相信奥特曼相信光">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2021.2.2 | lyasin的博客</title>
+    <title>计算机网络 | lyasin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -379,12 +379,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://qmle9wizc.hn-bkt.clouddn.com/l9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://qmle9wizc.hn-bkt.clouddn.com/lol8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2021.2.2</h1>
+                    <h1 class="description center-align post-title">计算机网络</h1>
                 </div>
             </div>
         </div>
@@ -500,14 +500,27 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/2021-2-2/">
-                                <span class="chip bg-color">2021.2.2</span>
+                            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                                <span class="chip bg-color">基础知识</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C/" class="post-category">
+                                C++
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -516,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-02
+                    2021-02-19
                 </div>
                 
 
@@ -545,7 +558,57 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>今天下午和张琛敏打王者荣耀，遇到3个小学生队友，张琛敏要被气死了<img src="http://qmle9wizc.hn-bkt.clouddn.com/%20QQ%E5%9B%BE%E7%89%8720210202181505.jpg" alt="小丑竟在我身边"></p>
+                <h4 id="TCP保证可靠性"><a href="#TCP保证可靠性" class="headerlink" title="TCP保证可靠性"></a>TCP保证可靠性</h4><ol>
+<li><p>序列号，确认应答，超时重传</p>
+<p>数据到达接收方，接收方需要发出一个确认应答，表示已经收到该数据段，并且确认序号会说明它下一次需要接受的数据序列号。如果发送方迟迟未收到确认应答，那么可能是发送的数据丢失，也可能是确认应答丢失，这时发送方会在等待一定时间后进行重传。这个时间一般是2*RTT（报文往返时间）+一个偏差值。</p>
+</li>
+<li><p>窗口控制与告诉重发控制、快速重传（重复确认应答）</p>
+<p>TCP会利用窗口控制来提高传输速度，意思是在一个窗口大小内，不用一定等到应答才能发送下一段数据，窗口大小就是无需等待确认而可以继续发送数据的最大值。如果不使用窗口控制，每一个没收到确认应答的数据都要重发。</p>
+<p>使用窗口控制，如果数据段1001-2000丢失，后面数据每次传输，确认应答都会不停地发送序号为1001的应答，表示我要接收1001开始的数据，发送端如果收到3次相同的应答，就会立刻进行重发。还有一种情况就是数据都收到了，但是有的应答丢失了，这种情况下不会进行重发，因为发送端知道，如果是数据丢失，接收端不会放过它的，会疯狂向它提醒。</p>
+</li>
+<li><p>拥塞控制</p>
+<p>如果把窗口定的很大，发送端连续发送大量的数据，可能会造成网络的拥堵，甚至造成网络的瘫痪。所以TCP在为了防止这种情况而进行了拥堵控制。</p>
+<p>慢启动：定义拥塞窗口，一开始将该窗口大小设为1，之后每次收到确认应答，将窗口大小*2。</p>
+<p>拥塞避免：设置慢启动阈值，一般开始都设为65536.拥塞避免是指当前拥塞窗口大小达到这个阈值，拥塞窗口的大小不再指数上升，而是加法增加，以此来避免拥塞。</p>
+<p>将报文的超时重传看做拥塞，则一旦发生超时重传，我们需要先将阈值设为当前窗口大小的一半，并且将窗口大小设为初值1，然后重新进入慢启动过程。</p>
+<p>快速重传：在遇到3次重复确认应答时，代表受到了3个报文段，但是这之前的一个段丢失了，便对它立刻进行重传。然后，先将阈值设置为当前窗口大小的一半，然后将拥塞窗口大小设置为慢启动阈值+3的大小。</p>
+</li>
+</ol>
+<hr>
+<h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><ul>
+<li>客户端将标志位SYN置为1，随机产生一个值seq，并将该数据包发送给服务端</li>
+<li>服务端收到数据包后有标志位SYN=1知道客户端请求建立连接，服务端将标志位SYN和ACK都置为1，ack=seq+1，随机产生一个seq1，并将该数据包发送给客户端以确认连接</li>
+<li>客户端收到确认后，检查ack是否为seq+1，ACK是否为1，如果正确则将标志位ACK置为1，ack1=seq1+1，并将该数据包发送给服务端。服务端检查ack1是否为seq1+1，如果正确则建立连接成功。</li>
+</ul>
+<hr>
+<h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><ol>
+<li>数据传输结束后，客户端的应用进程发出fin报文，并停止发送数据，进入fin_wait_1状态；</li>
+<li>服务器收到fin报文后，发送一个ACK给客户端，确认序号为收到的序号+1，服务器进入close_wait状态，客户端收到后进入fin_wait_2状态；</li>
+<li>当服务器没有数据要发送时，服务器发送一个fin报文，此时服务器进入last_ack状态，等待客户端确认；</li>
+<li>客户端收到服务器的fin报文后，给服务器发送一个ACK报文，确认序号为收到的序号+1.此时客户端进入time_wait状态，等待2MSL，然后关闭连接。</li>
+</ol>
+<p>等待2MSL是为了保证最后一次握手报文能到达服务端，能进行超时重传；2MSL后，这次连接的所有报文都会消失，不影响下一次连接。</p>
+<hr>
+<h4 id="HTTP和HTTPS的区别"><a href="#HTTP和HTTPS的区别" class="headerlink" title="HTTP和HTTPS的区别"></a>HTTP和HTTPS的区别</h4><ul>
+<li>HTTP协议是以明文的方式在网络中传输数据，而HTTPS协议传输的数据则是经过TLS加密后的，HTTPS具有更高的安全性；</li>
+<li>HTTPS在三次握手阶段之后，还需要进行SSL的handshake，协商加密使用的对称加密秘钥；</li>
+<li>HTTPS协议需要服务端申请证书，浏览器端安装对应的根证书；</li>
+<li>HTTP协议端口是80，HTTPS协议端口是443。</li>
+</ul>
+<hr>
+<h4 id="HTTP返回码"><a href="#HTTP返回码" class="headerlink" title="HTTP返回码"></a>HTTP返回码</h4><p>1xx：信息已接收，继续处理；</p>
+<p>2xx：请求已被成功接收，理解，接受；</p>
+<p>3xx：要完成请求必须进行更进一步的操作；</p>
+<p>4xx：客户端错误；</p>
+<p>5xx：服务端错误。</p>
+<p>200 ：客户端请求成功。</p>
+<p>206 ：服务器已经正确处理部分GET请求。</p>
+<p>300： 可选重定向，被请求的资源有系列可供选择的返回信息。</p>
+<p>301： 永久重定向，该资源已被永久移动到新位置，任何对该资源的访问都要使用本相应返回的若干个URI之一。</p>
+<p>302：临时重定向，请求的资源现在临时从不同的URI中获得。</p>
+<p>403： 服务器收到请求，但是拒绝提供服务。</p>
+<hr>
+<h4 id="IP地址作用和MAC地址作用"><a href="#IP地址作用和MAC地址作用" class="headerlink" title="IP地址作用和MAC地址作用"></a>IP地址作用和MAC地址作用</h4><p>MAC地址是一个硬件地址，用来定义网络设备的位置，主要由数据链路层负责。而IP地址是IP协议提供的一种同一的地址格式，为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来屏蔽物理地址的差异。</p>
 
                 
             </div>
@@ -572,7 +635,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lyasin.xyz/posts/8aff.html">https://lyasin.xyz/posts/8aff.html</a>
+                    <a href="https://lyasin.xyz/posts/7056.html">https://lyasin.xyz/posts/7056.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -610,8 +673,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/2021-2-2/">
-                                    <span class="chip bg-color">2021.2.2</span>
+                                <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">基础知识</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
                                 </a>
                             
                         </div>
@@ -1049,28 +1116,32 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/posts/8aff.html">
+                <a href="/posts/7056.html">
                     <div class="card-image">
                         
-                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/l9.jpg" class="responsive-img" alt="2021.2.2">
+                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/lol8.jpg" class="responsive-img" alt="计算机网络">
                         
-                        <span class="card-title">2021.2.2</span>
+                        <span class="card-title">计算机网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            计算机网络
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            lyasin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C/" class="post-category">
+                                    C++
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1079,8 +1150,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/2021-2-2/">
-                        <span class="chip bg-color">2021.2.2</span>
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">基础知识</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
                     </a>
                     
                 </div>
