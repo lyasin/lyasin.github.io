@@ -608,7 +608,108 @@
 <p>302：临时重定向，请求的资源现在临时从不同的URI中获得。</p>
 <p>403： 服务器收到请求，但是拒绝提供服务。</p>
 <hr>
-<h4 id="IP地址作用和MAC地址作用"><a href="#IP地址作用和MAC地址作用" class="headerlink" title="IP地址作用和MAC地址作用"></a>IP地址作用和MAC地址作用</h4><p>MAC地址是一个硬件地址，用来定义网络设备的位置，主要由数据链路层负责。而IP地址是IP协议提供的一种同一的地址格式，为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来屏蔽物理地址的差异。</p>
+<h4 id="IP地址作用和MAC地址作用"><a href="#IP地址作用和MAC地址作用" class="headerlink" title="IP地址作用和MAC地址作用"></a>IP地址作用和MAC地址作用</h4><p>MAC地址是一个硬件地址，用来定义网络设备的位置，主要由数据链路层负责。而IP地址是IP协议提供的一种统一的地址格式，为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来屏蔽物理地址的差异。</p>
+<hr>
+<h4 id="OSI七层模型和TCP-IP四层模型"><a href="#OSI七层模型和TCP-IP四层模型" class="headerlink" title="OSI七层模型和TCP/IP四层模型"></a>OSI七层模型和TCP/IP四层模型</h4><p>OSI七层模型及其包含的协议如下：</p>
+<ul>
+<li>物理层：通过媒介传输比特，确定机械及电气规范。主要协议有：IEE802.3,CLOCK, RJ45;</li>
+<li>数据链路层：将比特组装成帧和点到点的传递，传输单位为帧。主要协议有：MAC,VLAN,PPP;</li>
+<li>网络层：负责数据包从源到宿的传递和网际互联，传输单位为包。主要协议有：IP,ARP,ICMP;</li>
+<li>传输层：提供端到端的可靠报文传递和错误恢复，传输单位为报文。主要协议有：TCP,UDP；</li>
+<li>会话层：建立、管理、终止会话，传输单位为SPDU。主要协议有：RPC,NFS；</li>
+<li>表示层：对数据进行翻译、加密和压缩。主要协议为：JPEG.ASII;</li>
+<li>应用层：允许访问OSI环境的手段。主要协议为：FTP,HTTP,DNS。</li>
+</ul>
+<p>TCP/IP四层模型</p>
+<ul>
+<li>网络接口层：MAC,VLAN</li>
+<li>网络层：IP,ARP,ICMP</li>
+<li>传输层：TCP,UDP</li>
+<li>应用层：HTTP,DNS,SMTP</li>
+</ul>
+<hr>
+<h4 id="搜索baidu，会用到计算机的什么层"><a href="#搜索baidu，会用到计算机的什么层" class="headerlink" title="搜索baidu，会用到计算机的什么层"></a>搜索baidu，会用到计算机的什么层</h4><p>浏览器中输入URL</p>
+<p>浏览器要将URL解析为IP地址，解析域名就要用到DNS协议，首先主机会查询DNS缓存，如果没有就给本地DNS发送查询请求。DNS查询分为两种方式，一种是递归查询，一种是迭代查询。如果是迭代查询，本地的DNS服务器，向根域名服务器发送查询请求，根域名服务器告知该域名的一级域名服务器，然后本地服务器给该一级域名服务器发送查询请求，然后依次类推直到查询到该域名的IP地址。DNS服务器是基于UDP的，因此会用到UDP协议。</p>
+<p>得到IP地址后，浏览器就要与服务器建立一个http连接。因此要用到http协议。http生成一个get请求报文，将该报文传递给TCP层处理，所以还会用到TCP协议。如果采用https还会使用https协议先对http数据进行加密。TCP层如果有需要先将http数据包分片。http的数据包然后会发送给ip层，用到ip协议。ip层通过路由选路，一跳一跳发送到目的地址。当然在一个网段内的寻址通常是通过以太网协议实现，以太网协议需要知道目的ip地址的物理地址，又需要arp协议。</p>
+<hr>
+<h4 id="怎么区分UDP报文还是TCP报文"><a href="#怎么区分UDP报文还是TCP报文" class="headerlink" title="怎么区分UDP报文还是TCP报文"></a>怎么区分UDP报文还是TCP报文</h4><p>根据端口区分；</p>
+<p>看ip头中的协议标识字段，17是udp，6是tcp。</p>
+<hr>
+<h4 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h4><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">TCP</th>
+<th align="center">UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">连接</td>
+<td align="center">面向连接层，数据传输之前必须先建立好连接</td>
+<td align="center">无连接</td>
+</tr>
+<tr>
+<td align="center">服务对象</td>
+<td align="center">点对点的两点间服务</td>
+<td align="center">支持一对一，一对多，多对多的交互通信</td>
+</tr>
+<tr>
+<td align="center">可靠性</td>
+<td align="center">可靠交付，无差错，补跌是，不重复，按序到达</td>
+<td align="center">尽最大努力交付，不保证可靠交付</td>
+</tr>
+<tr>
+<td align="center">拥塞控制</td>
+<td align="center">有拥塞控制和流量控制保证数据传输的安全性</td>
+<td align="center">没有拥塞控制，网络拥塞不会影响源主机的发送效率</td>
+</tr>
+<tr>
+<td align="center">报文长度</td>
+<td align="center">动态报文长度</td>
+<td align="center">面向报文，不合并，不拆分</td>
+</tr>
+<tr>
+<td align="center">首部开销</td>
+<td align="center">首部开销大，首部20个字节</td>
+<td align="center">首部开销小，首部8个字节</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="get和post"><a href="#get和post" class="headerlink" title="get和post"></a>get和post</h4><p>对于get方式的请求，浏览器会把http header和data一并发送出去，服务器响应200；</p>
+<p>而对于post，浏览器先发送header，服务器响应100，浏览器再发送data，服务器响应200.</p>
+<table>
+<thead>
+<tr>
+<th align="center">get</th>
+<th align="center">post</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">参数通过url传递</td>
+<td align="center">参数放在request body中</td>
+</tr>
+<tr>
+<td align="center">参数传递长度有限制</td>
+<td align="center">参数传递长度无限制</td>
+</tr>
+<tr>
+<td align="center">参数暴露在url中，不安全</td>
+<td align="center">可以用来传递敏感信息</td>
+</tr>
+<tr>
+<td align="center">只能url编码</td>
+<td align="center">支持多种编码方式</td>
+</tr>
+<tr>
+<td align="center">请求参数会被保留在浏览历史记录里面</td>
+<td align="center">参数不会悲剧保留</td>
+</tr>
+<tr>
+<td align="center">产生一个TCP数据包</td>
+<td align="center">产生两个TCP数据包</td>
+</tr>
+</tbody></table>
+<hr>
 
                 
             </div>
