@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="sums问题, C++,春招,学习,长安大学,C++工程师等">
+    <meta name="keywords" content="卡尔曼滤波, C++,春招,学习,长安大学,C++工程师等">
     <meta name="description" content="永远相信奥特曼相信光">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>sums问题 | lyasin的博客</title>
+    <title>卡尔曼滤波 | lyasin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -379,12 +379,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://qmle9wizc.hn-bkt.clouddn.com/l8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://qmle9wizc.hn-bkt.clouddn.com/lol10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">sums问题</h1>
+                    <h1 class="description center-align post-title">卡尔曼滤波</h1>
                 </div>
             </div>
         </div>
@@ -500,12 +500,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/sums/">
-                                <span class="chip bg-color">sums</span>
-                            </a>
-                        
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/">
+                                <span class="chip bg-color">卡尔曼滤波</span>
                             </a>
                         
                     </div>
@@ -516,12 +512,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/sums/" class="post-category">
-                                sums
-                            </a>
-                        
-                            <a href="/categories/sums/C/" class="post-category">
-                                C++
+                            <a href="/categories/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/" class="post-category">
+                                卡尔曼滤波
                             </a>
                         
                     </div>
@@ -533,7 +525,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-11
+                    2021-02-02
                 </div>
                 
 
@@ -562,94 +554,39 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="一、twoSum-问题"><a href="#一、twoSum-问题" class="headerlink" title="一、twoSum 问题"></a>一、twoSum 问题</h4><p>假设输入一个数组 <code>nums</code> 和一个目标和 <code>target</code>，<code>nums</code> 中可能有多对儿元素之和都等于 <code>target</code>，请你的算法返回所有和为 <code>target</code> 的元素对儿，其中不能出现重复。</p>
-<p><strong>算法</strong></p>
-<ul>
-<li>首先对数组进行排序</li>
-<li>sum=nums[first]+nums[end]，与target比较大小(first=0,end=nums.size())<ul>
-<li>若大于target，则end–</li>
-<li>若小于target，则first++</li>
-<li>若等于，即为所求组合</li>
-</ul>
-</li>
-<li>每次取值，判断是否nums[first]==nums[first++]，nums[end]==nums[end–]。</li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;vector&lt;int&gt;&gt; twoSumTarget(vector&lt;int&gt;&amp; nums, int target) {
-    // nums 数组必须有序
-    sort(nums.begin(), nums.end());
-    int lo = 0, hi = nums.size() - 1;
-    vector&lt;vector&lt;int&gt;&gt; res;
-    while (lo &lt; hi) {
-        int sum = nums[lo] + nums[hi];
-        int left = nums[lo], right = nums[hi];
-        if (sum &lt; target) {
-            while (lo &lt; hi &amp;&amp; nums[lo] == left) lo++;
-        } else if (sum &gt; target) {
-            while (lo &lt; hi &amp;&amp; nums[hi] == right) hi--;
-        } else {
-            res.push_back({left, right});
-            while (lo &lt; hi &amp;&amp; nums[lo] == left) lo++;
-            while (lo &lt; hi &amp;&amp; nums[hi] == right) hi--;
-        }
-    }
-    return res;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h4 id="卡尔曼滤波"><a href="#卡尔曼滤波" class="headerlink" title="卡尔曼滤波"></a>卡尔曼滤波</h4><p>卡尔曼滤波器是一个“optimal recursive data processing algorithm（最优化自回归数据处理算法）”。对于解决很大部分的问题，他是最优，效率最高甚至是最有用的。</p>
+<h4 id="为什么使用卡尔曼滤波"><a href="#为什么使用卡尔曼滤波" class="headerlink" title="为什么使用卡尔曼滤波"></a>为什么使用卡尔曼滤波</h4><p>在自动驾驶领域，传感器返回值的数据不是100%准确的，或者误差并不小于阈值。</p>
+<p>在自动驾驶领域，卡尔曼滤波器管饭被用于通过特征级融合激光雷达和毫米波雷达的数据，估计汽车的位置和速度。简单来说，就是将传感器返回的有偏差的测量结果与卡尔曼滤波提供的预测结果相结合。从而获得对准确位置的最佳估计。</p>
+<p>例如：</p>
+<p>假设我们要研究的对象是一个房间的温度。根据你的经验判断，这个房间的温度是恒定的，也就是下一分钟的温度等于现在这一分钟的温度（假设我们用一分钟来做时间单位）。假设你对你的经验不是100%的相信，可能会有上下偏差几度。我们把这些偏差看成是高斯白噪声（White Gaussian Noise），也就是这些偏差跟前后时间是没有关系的而且符合高斯分配（Gaussian Distribution）。另外，我们在房间里放一个温度计，但是这个温度计也不准确的，测量值会比实际值偏差。我们也把这些偏差看成是高斯白噪声。</p>
+<p>好了，现在对于某一分钟我们有两个有关于该房间的温度值：你根据经验的预测值（系统的预测值）和温度计的值（测量值）。下面我们要用这两个值结合他们各自的噪声来估算出房间的实际温度值。</p>
+<p>假如我们要估算k时刻的是实际温度值。首先你要根据k-1时刻的温度值，来预测k时刻的温度。因为你相信温度是恒定的，所以你会得到k时刻的温度预测值是跟k-1时刻一样的，假设是23度，同时该值的高斯噪声的偏差是5度（5是这样得到的：如果k-1时刻估算出的最优温度值的偏差是3，你对自己预测的不确定度是4度，他们平方相加再开方，就是5）。然后，你从温度计那里得到了k时刻的温度值，假设是25度，同时该值的偏差是4度。</p>
+<p>由于我们用于估算k时刻的实际温度有两个温度值，分别是23度和25度。究竟实际温度是多少呢？相信自己还是相信温度计呢？究竟相信谁多一点，我们可以用他们的covariance来判断。因为Kg^2=5^2/(5^2+4^2)，所以Kg=0.78，我们可以估算出k时刻的实际温度值是：23+0.78*(25-23)=24.56度。可以看出，因为温度计的covariance比较小（比较相信温度计），所以估算出的最优温度值偏向温度计的值。</p>
+<p>现在我们已经得到k时刻的最优温度值了，下一步就是要进入k+1时刻，进行新的最优估算。到现在为止，好像还没看到什么自回归的东西出现。对了，在进入k+1时刻之前，我们还要算出k时刻那个最优值（24.56度）的偏差。算法如下：((1-Kg)*5^2)^0.5=2.35。这里的5就是上面的k时刻你预测的那个23度温度值的偏差，得出的2.35就是进入k+1时刻以后k时刻估算出的最优温度值的偏差（对应于上面的3）。</p>
+<p>就是这样，卡尔曼滤波器就不断的把covariance递归，从而估算出最优的温度值。他运行的很快，而且它只保留了上一时刻的covariance。上面的Kg，就是卡尔曼增益（Kalman Gain）。他可以随不同的时刻而改变他自己的值。</p>
+<h4 id="卡尔曼滤波器算法"><a href="#卡尔曼滤波器算法" class="headerlink" title="卡尔曼滤波器算法"></a>卡尔曼滤波器算法</h4><p>首先，我们先要引入一个离散控制过程的系统。该系统可用一个线性随机微分方程（Linear Stochastic Difference equation）来描述：</p>
+<p>$$<br>X(k)=A X(k-1)+B U(k)+W(k)<br>$$<br>再加上系统的测量值：<br>$$<br>Z(k)=H X(k)+V(k)<br>$$<br>上两式子中，X(k)是k时刻的系统状态，U(k)是k时刻对系统的控制量。A和B是系统参数，对于多模型系统，他们为矩阵。Z(k)是k时刻的测量值，H是测量系统的参数，对于多测量系统，H为矩阵。W(k)和V(k)分别表示过程和测量的噪声。他们被假设成高斯白噪声(White Gaussian Noise)，他们的covariance 分别是Q，R（这里我们假设他们不随系统状态变化而变化）。</p>
+<p>对于满足上面的条件(线性随机微分系统，过程和测量都是高斯白噪声)，卡尔曼滤波器是最优的信息处理器。下面我们来用他们结合他们的covariances 来估算系统的最优化输出。</p>
+<p>首先我们要利用系统的过程模型，来预测下一状态的系统。假设现在的系统状态是k，根据系统的模型，可以基于系统的上一状态而预测出现在状态：</p>
+<p>$$<br> X(k|k-1)=A X(k-1|k-1)+B U(k) ……….. (1)<br>$$<br>式(1)中，X(k|k-1)是利用上一状态预测的结果，X(k-1|k-1)是上一状态最优的结果，U(k)为现在状态的控制量，如果没有控制量，它可以为0。</p>
+<p>到现在为止，我们的系统结果已经更新了，可是，对应于X(k|k-1)的covariance还没更新。我们用P表示covariance：<br>$$<br> P(k|k-1)=A P(k-1|k-1) A’+Q ……… (2)<br>$$<br>式(2)中，P(k|k-1)是X(k|k-1)对应的covariance，P(k-1|k-1)是X(k-1|k-1)对应的covariance，A’表示A的转置矩阵，Q是系统过程的covariance。式子1，2就是卡尔曼滤波器5个公式当中的前两个，也就是对系统的预测。</p>
+<p>现在我们有了现在状态的预测结果，然后我们再收集现在状态的测量值。结合预测值和测量值，我们可以得到现在状态(k)的最优化估算值X(k|k)：<br>$$<br>  X(k|k)= X(k|k-1)+Kg(k) (Z(k)-H X(k|k-1)) ……… (3)<br>$$<br>其中Kg为卡尔曼增益(Kalman Gain)：<br>$$<br>  Kg(k)= P(k|k-1) H’ / (H P(k|k-1) H’ + R) ……… (4)<br>$$<br>到现在为止，我们已经得到了k状态下最优的估算值X(k|k)。但是为了要另卡尔曼滤波器不断的运行下去直到系统过程结束，我们还要更新k状态下X(k|k)的covariance：<br>$$<br>P(k|k)=（I-Kg(k) H）P(k|k-1) ……… (5)<br>$$<br>其中I 为1的矩阵，对于单模型单测量，I=1。当系统进入k+1状态时，P(k|k)就是式子(2)的P(k-1|k-1)。这样，算法就可以自回归的运算下去。</p>
+<p>卡尔曼滤波器的原理基本描述了，式子1，2，3，4和5就是他的5 个基本公式。根据这5个公式，可以很容易的实现计算机的程序。</p>
+<h4 id="汽车模拟器的下载安装与使用"><a href="#汽车模拟器的下载安装与使用" class="headerlink" title="汽车模拟器的下载安装与使用"></a>汽车模拟器的下载安装与使用</h4><!-- vlog模块 -->
+<div style="position: relative; padding: 30% 45%;">
+    <iframe style="
+        position: absolute; 
+        width: 100%; 
+        height: 100%; 
+        left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=671803638&amp;bvid=BV1SU4y1W7mx&amp;cid=301470095&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+    </iframe>
+</div>
 
 
-<hr>
-<h4 id="二、Threesum问题"><a href="#二、Threesum问题" class="headerlink" title="二、Threesum问题"></a>二、Threesum问题</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/3sum/">15. 三数之和</a></p>
-<p><img src="http://qmle9wizc.hn-bkt.clouddn.com/%203sum.png" alt="3sum"></p>
-<p>泛化一下题目，不要光和为 0 的三元组了，计算和为 <code>target</code> 的三元组吧，同上面的 <code>twoSum</code> 一样，也不允许重复的结果</p>
-<p><strong>算法</strong></p>
-<ul>
-<li>首先对数组进行排序，然后取第一个值，后面的问题就变为twosum问题</li>
-<li>sum=nums[first]+nums[end]，与target比较大小(first=0,end=nums.size())<ul>
-<li>若大于target，则end–</li>
-<li>若小于target，则first++</li>
-<li>若等于，即为所求组合</li>
-</ul>
-</li>
-<li>每次取值，判断是否nums[first]==nums[first++]，nums[end]==nums[end–]。</li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">/* 从 nums[start] 开始，计算有序数组
- * nums 中所有和为 target 的二元组 */
-vector&lt;vector&lt;int&gt;&gt; twoSumTarget(
-    vector&lt;int&gt;&amp; nums, int start, int target) {
-    // 左指针改为从 start 开始，其他不变
-    int lo = start, hi = nums.size() - 1;
-    vector&lt;vector&lt;int&gt;&gt; res;
-    while (lo &lt; hi) {
-        ...
-    }
-    return res;
-}
-
-/* 计算数组 nums 中所有和为 target 的三元组 */
-vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int target) {
-    // 数组得排个序
-    sort(nums.begin(), nums.end());
-    int n = nums.size();
-    vector&lt;vector&lt;int&gt;&gt; res;
-    // 穷举 threeSum 的第一个数
-    for (int i = 0; i &lt; n; i++) {
-        // 对 target - nums[i] 计算 twoSum
-        vector&lt;vector&lt;int&gt;&gt; 
-            tuples = twoSumTarget(nums, i + 1, target - nums[i]);
-        // 如果存在满足条件的二元组，再加上 nums[i] 就是结果三元组
-        for (vector&lt;int&gt;&amp; tuple : tuples) {
-            tuple.push_back(nums[i]);
-            res.push_back(tuple);
-        }
-        // 跳过第一个数字重复的情况，否则会出现重复结果
-        while (i &lt; n - 1 &amp;&amp; nums[i] == nums[i + 1]) i++;
-    }
-    return res;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<hr>
-<h4 id="三、Foursum问题"><a href="#三、Foursum问题" class="headerlink" title="三、Foursum问题"></a>三、Foursum问题</h4><p>根据Threesum问题，很简单，我们可以套娃解决<code>4sum</code>，<code>5sum</code>，甚至是<code>nsum</code>的问题了</p>
-<hr>
+<h4 id="C-通讯实现"><a href="#C-通讯实现" class="headerlink" title="C++通讯实现"></a>C++通讯实现</h4><h5 id="libuv的安装"><a href="#libuv的安装" class="headerlink" title="libuv的安装"></a>libuv的安装</h5><p><a target="_blank" rel="noopener" href="https://github.com/libuv/libuv">下载libuv</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/turbulenz/gyp">下载gyp</a></p>
+<p>网上资料太少，c++通讯实现失败</p>
+<p>gitbub发现python版Kalman汽车项目开始学习，但是没有注释，很难理解</p>
 
                 
             </div>
@@ -676,7 +613,7 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lyasin.xyz/posts/32c7.html">https://lyasin.xyz/posts/32c7.html</a>
+                    <a href="https://lyasin.xyz/posts/5da6.html">https://lyasin.xyz/posts/5da6.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -714,12 +651,8 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/sums/">
-                                    <span class="chip bg-color">sums</span>
-                                </a>
-                            
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/">
+                                    <span class="chip bg-color">卡尔曼滤波</span>
                                 </a>
                             
                         </div>
@@ -1156,30 +1089,30 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/5da6.html">
+                <a href="/posts/7056.html">
                     <div class="card-image">
                         
-                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/lol10.jpg" class="responsive-img" alt="卡尔曼滤波">
+                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/lol8.jpg" class="responsive-img" alt="计算机网络">
                         
-                        <span class="card-title">卡尔曼滤波</span>
+                        <span class="card-title">计算机网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            卡尔曼滤波
+                            计算机网络
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/" class="post-category">
-                                    卡尔曼滤波
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
@@ -1189,8 +1122,12 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/">
-                        <span class="chip bg-color">卡尔曼滤波</span>
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">基础知识</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
                     </a>
                     
                 </div>
@@ -1204,37 +1141,33 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/248c.html">
+                <a href="/posts/32c7.html">
                     <div class="card-image">
                         
-                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/l5.jpg" class="responsive-img" alt="三道区间">
+                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/l8.jpg" class="responsive-img" alt="sums问题">
                         
-                        <span class="card-title">三道区间</span>
+                        <span class="card-title">sums问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            三道区间问题
+                            sum问题
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/" class="post-category">
-                                    三道区间
+                            <a href="/categories/sums/" class="post-category">
+                                    sums
                                 </a>
                             
-                            <a href="/categories/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="post-category">
-                                    贪心算法
-                                </a>
-                            
-                            <a href="/categories/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/C/" class="post-category">
+                            <a href="/categories/sums/C/" class="post-category">
                                     C++
                                 </a>
                             
@@ -1245,16 +1178,12 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/sums/">
+                        <span class="chip bg-color">sums</span>
+                    </a>
+                    
                     <a href="/tags/C/">
                         <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/">
-                        <span class="chip bg-color">三道区间</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">贪心算法</span>
                     </a>
                     
                 </div>

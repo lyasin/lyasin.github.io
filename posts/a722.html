@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="sums问题, C++,春招,学习,长安大学,C++工程师等">
+    <meta name="keywords" content="牛客面经, C++,春招,学习,长安大学,C++工程师等">
     <meta name="description" content="永远相信奥特曼相信光">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>sums问题 | lyasin的博客</title>
+    <title>牛客面经 | lyasin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -379,12 +379,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://qmle9wizc.hn-bkt.clouddn.com/l8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://qmle9wizc.hn-bkt.clouddn.com/lol9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">sums问题</h1>
+                    <h1 class="description center-align post-title">牛客面经</h1>
                 </div>
             </div>
         </div>
@@ -500,12 +500,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/sums/">
-                                <span class="chip bg-color">sums</span>
-                            </a>
-                        
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/%E9%9D%A2%E7%BB%8F/">
+                                <span class="chip bg-color">面经</span>
                             </a>
                         
                     </div>
@@ -516,12 +512,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/sums/" class="post-category">
-                                sums
-                            </a>
-                        
-                            <a href="/categories/sums/C/" class="post-category">
-                                C++
+                            <a href="/categories/%E9%9D%A2%E7%BB%8F/" class="post-category">
+                                面经
                             </a>
                         
                     </div>
@@ -533,7 +525,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-11
+                    2021-02-20
                 </div>
                 
 
@@ -562,94 +554,71 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="一、twoSum-问题"><a href="#一、twoSum-问题" class="headerlink" title="一、twoSum 问题"></a>一、twoSum 问题</h4><p>假设输入一个数组 <code>nums</code> 和一个目标和 <code>target</code>，<code>nums</code> 中可能有多对儿元素之和都等于 <code>target</code>，请你的算法返回所有和为 <code>target</code> 的元素对儿，其中不能出现重复。</p>
-<p><strong>算法</strong></p>
+                <h4 id="HTTP怎么建立连接"><a href="#HTTP怎么建立连接" class="headerlink" title="HTTP怎么建立连接"></a>HTTP怎么建立连接</h4><p>三次握手，四次挥手</p>
+<hr>
+<h4 id="TCP-UDP比较"><a href="#TCP-UDP比较" class="headerlink" title="TCP/UDP比较"></a>TCP/UDP比较</h4><ol>
+<li>TCP面向连接层；UDP无连接</li>
+<li>TCP点对点；UDP一对一，一对多，多对多</li>
+<li>TCP可靠交付，无差错，不重复，有序；</li>
+<li>TCP有拥塞控制；UDP没有</li>
+<li>TCP动态报文长度；UDP面向报文，不合并，不拆分</li>
+<li>TCP首部开销大，首部20个字节；UDP首部开销小，首部8个字节</li>
+</ol>
+<hr>
+<h4 id="get和post的区别"><a href="#get和post的区别" class="headerlink" title="get和post的区别"></a>get和post的区别</h4><ol>
+<li>get方式，浏览器会把header和data一起发送出去；post先发header，再发data；</li>
+<li>get参数通过url传递，post参数放在request body中</li>
+<li>get参数长度有限制，post没有</li>
+<li>get参数暴露在url中，不安全，post可以用来传递敏感信息</li>
+<li>get只能url编码，post支持多种编码方式</li>
+<li>get请求参数会被保留在浏览历史记录里面，post参数不会被保留</li>
+<li>get产生一个TCP数据包，post产生两个</li>
+</ol>
+<hr>
+<h4 id="URL请求怎么得到网页内容"><a href="#URL请求怎么得到网页内容" class="headerlink" title="URL请求怎么得到网页内容"></a>URL请求怎么得到网页内容</h4><p>首先要将URL解析为IP地址，解析域名要用到DNS协议。首先主机要查询DNS缓存，如果没有就给本地DNS发送查询请求。DNS查询分为两种方式，一种是递归查询，一种是迭代查询。如果是迭代查询，本地的DNS服务器先向根域名服务器发送查询请求，根域名告知该域名的一级域名服务器，然后本地服务器再给一级域名服务器发送查询请求，，以此类推，知道查询到该域名的IP地址，DNS服务器是基于UDP的，因此会用到UDP协议。</p>
+<p>得到IP地址后，浏览器就要与服务器建立一个http连接。因此要用到http协议。http生成一个get请求报文传递给TCP层处理，所以还会用到TCP协议。如果采用https还会使用https协议先对http数据进行加密。TCP层如果有需要先将HTTP数据包分片。HTTP的数据包会发送给ip层，用到ip协议。ip层通过路由选路一跳一跳发送到目的地址。当然在一个网段内的寻址通常是通过以太网协议实现的，以太网协议需要知道目的ip地址的物理地址，又需要ARP协议。</p>
+<hr>
+<h4 id="struct和class区别"><a href="#struct和class区别" class="headerlink" title="struct和class区别"></a>struct和class区别</h4><p>struct是值类型，class是对象类型</p>
+<p>struct不能被继承，class可以</p>
+<p>struct的默认访问权限是public，class是private</p>
+<hr>
+<h4 id="左值和右值的区别"><a href="#左值和右值的区别" class="headerlink" title="左值和右值的区别"></a>左值和右值的区别</h4><p>左值和右值的区分标准在于能否获取地址</p>
+<p>左值是对应内存中有确定存储地址的对象的表达式的值，而右值是所有不是左值表达式的值</p>
+<p>左值是有名字的变量，可以被赋值，可以在多条语句中出现</p>
+<p>右值是没有名字的临时变量，不能被赋值，只能在一条语句中出现</p>
+<hr>
+<h4 id="静态多态和动态多态"><a href="#静态多态和动态多态" class="headerlink" title="静态多态和动态多态"></a>静态多态和动态多态</h4><p>应用形式上</p>
 <ul>
-<li>首先对数组进行排序</li>
-<li>sum=nums[first]+nums[end]，与target比较大小(first=0,end=nums.size())<ul>
-<li>若大于target，则end–</li>
-<li>若小于target，则first++</li>
-<li>若等于，即为所求组合</li>
+<li>静态多态是发散式的，让相同的实现代码应用于不同的场合</li>
+<li>动态多态是收敛式的，让不同的代码应用于相同的场合</li>
 </ul>
-</li>
-<li>每次取值，判断是否nums[first]==nums[first++]，nums[end]==nums[end–]。</li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;vector&lt;int&gt;&gt; twoSumTarget(vector&lt;int&gt;&amp; nums, int target) {
-    // nums 数组必须有序
-    sort(nums.begin(), nums.end());
-    int lo = 0, hi = nums.size() - 1;
-    vector&lt;vector&lt;int&gt;&gt; res;
-    while (lo &lt; hi) {
-        int sum = nums[lo] + nums[hi];
-        int left = nums[lo], right = nums[hi];
-        if (sum &lt; target) {
-            while (lo &lt; hi &amp;&amp; nums[lo] == left) lo++;
-        } else if (sum &gt; target) {
-            while (lo &lt; hi &amp;&amp; nums[hi] == right) hi--;
-        } else {
-            res.push_back({left, right});
-            while (lo &lt; hi &amp;&amp; nums[lo] == left) lo++;
-            while (lo &lt; hi &amp;&amp; nums[hi] == right) hi--;
-        }
-    }
-    return res;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<hr>
-<h4 id="二、Threesum问题"><a href="#二、Threesum问题" class="headerlink" title="二、Threesum问题"></a>二、Threesum问题</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/3sum/">15. 三数之和</a></p>
-<p><img src="http://qmle9wizc.hn-bkt.clouddn.com/%203sum.png" alt="3sum"></p>
-<p>泛化一下题目，不要光和为 0 的三元组了，计算和为 <code>target</code> 的三元组吧，同上面的 <code>twoSum</code> 一样，也不允许重复的结果</p>
-<p><strong>算法</strong></p>
+<p>思维方式上</p>
 <ul>
-<li>首先对数组进行排序，然后取第一个值，后面的问题就变为twosum问题</li>
-<li>sum=nums[first]+nums[end]，与target比较大小(first=0,end=nums.size())<ul>
-<li>若大于target，则end–</li>
-<li>若小于target，则first++</li>
-<li>若等于，即为所求组合</li>
+<li>静态多态是泛型式编程风格，它看中的是算法的普适性</li>
+<li>动态多态是对象式编程风格，它看中的是接口和实现的分离度</li>
 </ul>
-</li>
-<li>每次取值，判断是否nums[first]==nums[first++]，nums[end]==nums[end–]。</li>
+<hr>
+<h4 id="构造函数能否被重写"><a href="#构造函数能否被重写" class="headerlink" title="构造函数能否被重写"></a>构造函数能否被重写</h4><p>首先，构造器是不能被继承的，因为每个类的类名都不相同，而构造器名与类名相同，所以根本谈不上继承，又由于构造器不能被继承，所以就不能被重写。</p>
+<hr>
+<h4 id="用户级线程和内核级线程"><a href="#用户级线程和内核级线程" class="headerlink" title="用户级线程和内核级线程"></a>用户级线程和内核级线程</h4><hr>
+<h4 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h4><p>进程是对运行时程序的封装，是系统进行资源调度和分配的最小单位，线程是进程的子任务，是CPU进行资源调度和分配的最小单位</p>
+<ul>
+<li>一个线程只能属于一个进程，一个进程可以包含多个线程，但至少有一个线程。线程依赖进程存在。</li>
+<li>进程在执行过程中拥有独立的内存单元，而多个线程共享进程的内存</li>
+<li>由于在创建或撤销进程时，系统都要为之回收或分配资源，入内存空间、IO设备等。因此，操作系统付出的开销将显著大于创建或撤销线程时的开销。类似的，进程切换时，设计整个当前进程CPU环境的保存和新被调度的CPU环境的设置。而线程切换只须保存或设置少量寄存器的内容，并不涉及存储管理方面的操作。</li>
+<li>由于同一进程中的多个线程具有相同的地址空间，致使它们之间的同步和通信的实现，也变得比较容易。共享内存。</li>
+<li>进程编程调试简单，可靠性高，但是创建销毁开销大；线程正好相反，开销小，切换速度快，但是编程调试相对复杂。</li>
+<li>进程间不会相互影响，一个线程挂掉将导致整个进程垮掉</li>
+<li>进程适应于多核，多机分布；线程适用于多核</li>
 </ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">/* 从 nums[start] 开始，计算有序数组
- * nums 中所有和为 target 的二元组 */
-vector&lt;vector&lt;int&gt;&gt; twoSumTarget(
-    vector&lt;int&gt;&amp; nums, int start, int target) {
-    // 左指针改为从 start 开始，其他不变
-    int lo = start, hi = nums.size() - 1;
-    vector&lt;vector&lt;int&gt;&gt; res;
-    while (lo &lt; hi) {
-        ...
-    }
-    return res;
-}
-
-/* 计算数组 nums 中所有和为 target 的三元组 */
-vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int target) {
-    // 数组得排个序
-    sort(nums.begin(), nums.end());
-    int n = nums.size();
-    vector&lt;vector&lt;int&gt;&gt; res;
-    // 穷举 threeSum 的第一个数
-    for (int i = 0; i &lt; n; i++) {
-        // 对 target - nums[i] 计算 twoSum
-        vector&lt;vector&lt;int&gt;&gt; 
-            tuples = twoSumTarget(nums, i + 1, target - nums[i]);
-        // 如果存在满足条件的二元组，再加上 nums[i] 就是结果三元组
-        for (vector&lt;int&gt;&amp; tuple : tuples) {
-            tuple.push_back(nums[i]);
-            res.push_back(tuple);
-        }
-        // 跳过第一个数字重复的情况，否则会出现重复结果
-        while (i &lt; n - 1 &amp;&amp; nums[i] == nums[i + 1]) i++;
-    }
-    return res;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 <hr>
-<h4 id="三、Foursum问题"><a href="#三、Foursum问题" class="headerlink" title="三、Foursum问题"></a>三、Foursum问题</h4><p>根据Threesum问题，很简单，我们可以套娃解决<code>4sum</code>，<code>5sum</code>，甚至是<code>nsum</code>的问题了</p>
-<hr>
+<h4 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h4><p>物理层   IEE802.3、CLOCK、RJ45</p>
+<p>数据链路层 MAC、VLAN、PPP</p>
+<p>网络层 IP、ARP、ICMP</p>
+<p>传输层 TCP、UDP</p>
+<p>会话层 RPC、NFS</p>
+<p>表示层 JPEG、ASII</p>
+<p>应用层 FTP、HTTP、DNS</p>
 
                 
             </div>
@@ -676,7 +645,7 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lyasin.xyz/posts/32c7.html">https://lyasin.xyz/posts/32c7.html</a>
+                    <a href="https://lyasin.xyz/posts/a722.html">https://lyasin.xyz/posts/a722.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -714,12 +683,8 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/sums/">
-                                    <span class="chip bg-color">sums</span>
-                                </a>
-                            
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/%E9%9D%A2%E7%BB%8F/">
+                                    <span class="chip bg-color">面经</span>
                                 </a>
                             
                         </div>
@@ -1152,45 +1117,47 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/5da6.html">
+                <a href="/posts/a722.html">
                     <div class="card-image">
                         
-                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/lol10.jpg" class="responsive-img" alt="卡尔曼滤波">
+                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/lol9.jpg" class="responsive-img" alt="牛客面经">
                         
-                        <span class="card-title">卡尔曼滤波</span>
+                        <span class="card-title">牛客面经</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            卡尔曼滤波
+                            面经
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/" class="post-category">
-                                    卡尔曼滤波
+                            <a href="/categories/%E9%9D%A2%E7%BB%8F/" class="post-category">
+                                    面经
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/">
-                        <span class="chip bg-color">卡尔曼滤波</span>
+                    <a href="/tags/%E9%9D%A2%E7%BB%8F/">
+                        <span class="chip bg-color">面经</span>
                     </a>
                     
                 </div>
@@ -1204,37 +1171,29 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/248c.html">
+                <a href="/posts/7056.html">
                     <div class="card-image">
                         
-                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/l5.jpg" class="responsive-img" alt="三道区间">
+                        <img src="http://qmle9wizc.hn-bkt.clouddn.com/lol8.jpg" class="responsive-img" alt="计算机网络">
                         
-                        <span class="card-title">三道区间</span>
+                        <span class="card-title">计算机网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            三道区间问题
+                            计算机网络
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/" class="post-category">
-                                    三道区间
-                                </a>
-                            
-                            <a href="/categories/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="post-category">
-                                    贪心算法
-                                </a>
-                            
-                            <a href="/categories/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/C/" class="post-category">
+                            <a href="/categories/C/" class="post-category">
                                     C++
                                 </a>
                             
@@ -1245,16 +1204,12 @@ vector&lt;vector&lt;int&gt;&gt; threeSumTarget(vector&lt;int&gt;&amp; nums, int 
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">基础知识</span>
                     </a>
                     
-                    <a href="/tags/%E4%B8%89%E9%81%93%E5%8C%BA%E9%97%B4/">
-                        <span class="chip bg-color">三道区间</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">贪心算法</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
                     </a>
                     
                 </div>
