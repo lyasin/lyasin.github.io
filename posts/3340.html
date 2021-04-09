@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="1106, C++,春招,学习,长安大学,C++工程师等">
+    <meta name="keywords" content="Lyasin的毕业设计, C++,春招,学习,长安大学,C++工程师等">
     <meta name="description" content="永远相信奥特曼相信光">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>1106 | lyasin的博客</title>
+    <title>Lyasin的毕业设计 | lyasin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -366,7 +366,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = 'b412979511d01535f9ef197a334123a6db6218ab9b504ecd60ea3b0c395a876b';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -379,12 +379,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/dashing-brother/picture/raw/master/l15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/dashing-brother/picture/raw/master/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">1106</h1>
+                    <h1 class="description center-align post-title">Lyasin的毕业设计</h1>
                 </div>
             </div>
         </div>
@@ -500,14 +500,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/1106/">
-                                <span class="chip bg-color">1106</span>
+                            <a href="/tags/%E6%97%A5%E5%B8%B8/">
+                                <span class="chip bg-color">日常</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
+                                日常
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -516,7 +525,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-26
+                    2021-04-09
                 </div>
                 
 
@@ -545,21 +554,103 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://gitee.com/dashing-brother/picture/raw/master/QQ%E5%9B%BE%E7%89%8720210226200716.jpg" alt="QQ图片20210226200716"></p>
+                <h3 id="自动驾驶汽车状态监控及故障诊断系统设计与实现"><a href="#自动驾驶汽车状态监控及故障诊断系统设计与实现" class="headerlink" title="自动驾驶汽车状态监控及故障诊断系统设计与实现"></a><strong>自动驾驶汽车状态监控及故障诊断系统设计与实现</strong></h3><p>首先，读取无人驾驶汽车通过传感器传回的数据文件，选择$GPCHC协议头的文件，把txt文件中的数据按行读取，并且按“，”分割成多个一元数组。代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"5.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> L <span class="token keyword">in</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        string <span class="token operator">=</span> L<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span>
+        string <span class="token operator">=</span> L<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token string">'$GPCHC'</span> <span class="token keyword">in</span> string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$GPCHC协议协议介绍：</p>
+<p><img src="https://gitee.com/dashing-brother/picture/raw/master/GPCHC%E7%BB%84%E5%90%88%E5%AF%BC%E8%88%AA%E6%95%B0%E6%8D%AE%E5%8C%85%E5%AE%9A%E4%B9%89.png" alt="GPCHC组合导航数据包定义"></p>
+<p><img src="https://gitee.com/dashing-brother/picture/raw/master/GPCHC%E4%BB%8B%E7%BB%8D.png" alt="GPCHC介绍"></p>
+<p><img src="https://gitee.com/dashing-brother/picture/raw/master/GPCHC%E4%BB%8B%E7%BB%8D%E7%BB%AD.png" alt="GPCHC介绍续"></p>
+<p>其中速度v等于东向速度的平方加北向速度的平方再开方，加速度a等于X轴加速度的平方加Y轴加速度的平方，再加Z轴加速度的平方再开方，代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a<span class="token operator">=</span><span class="token builtin">float</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+b<span class="token operator">=</span><span class="token builtin">float</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+t<span class="token operator">=</span>math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>a<span class="token operator">*</span>a<span class="token operator">+</span>b<span class="token operator">*</span>b<span class="token punctuation">)</span>
+c<span class="token operator">=</span><span class="token builtin">float</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+d<span class="token operator">=</span><span class="token builtin">float</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+e<span class="token operator">=</span><span class="token builtin">float</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+aa<span class="token operator">=</span>math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>c<span class="token operator">*</span>c<span class="token operator">+</span>d<span class="token operator">*</span>d<span class="token operator">+</span>e<span class="token operator">*</span>e<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>定义4个list ：x1，x2，y1,y2分别用来表示v-t，a-t的横纵坐标轴，将上述计算得到的速度加速度分别放到y1,y2中，代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">y1<span class="token punctuation">,</span>x1<span class="token punctuation">,</span>y2<span class="token punctuation">,</span>x2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+y1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+x1<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">float</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+y2<span class="token punctuation">.</span>append<span class="token punctuation">(</span>aa<span class="token punctuation">)</span>
+x2<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在放入前需要判断数据是否合法，这里我用数据是否可以被转化为浮点数来判断，例如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"> <span class="token keyword">try</span><span class="token punctuation">:</span>
+    <span class="token builtin">float</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">except</span> ValueError<span class="token punctuation">:</span>
+                <span class="token keyword">break</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>创建两个二维直角坐标系，这里引用了Python的pyplot库，一个用来画图的库，创建两个二维直角坐标系，第一个直角坐标系用来表示V-T图像，其中Y轴为y1中存储的数据，X轴为时刻，因为车辆在试验场行驶时，车辆的速度在（0,30），所以值域为（0,30），定义域为（0，n）。第二个直角坐标系用来表示A-T图像，其中Y轴为y2中存储的数据，X轴为时刻，因为车辆在试验场正常行驶时，车辆的加速度为（-5,5），所以值域为（-5,5），定义域为（0，n）。实现代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax1 <span class="token operator">=</span> fig<span class="token punctuation">.</span>add_subplot<span class="token punctuation">(</span><span class="token number">221</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xlim<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x1<span class="token punctuation">,</span> y1<span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">'t'</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">'v'</span><span class="token punctuation">)</span>
+
+ax2 <span class="token operator">=</span> fig<span class="token punctuation">.</span>add_subplot<span class="token punctuation">(</span><span class="token number">222</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xlim<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x2<span class="token punctuation">,</span>y2<span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">'t'</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果展示</p>
+<p><img src="https://gitee.com/dashing-brother/picture/raw/master/V-T%20AND%20A-T.png" alt="V-T AND A-T"></p>
+<p>这一部分的学习来自博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35077107/article/details/97619685?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_baidulandingword-6&amp;spm=1001.2101.3001.4242">读取txt文件数据并画图</a></p>
+<p>将计算得到的速度，加速度数据放入到一个名为va.csv的文件中，用于后续通过机器学习判断车辆是否出现故障，以及给出提示，代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"va.csv"</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">,</span> newline<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cf<span class="token punctuation">:</span>
+       w <span class="token operator">=</span> csv<span class="token punctuation">.</span>writer<span class="token punctuation">(</span>cf<span class="token punctuation">)</span>
+       w<span class="token punctuation">.</span>writerow<span class="token punctuation">(</span><span class="token punctuation">[</span>t<span class="token punctuation">,</span>aa<span class="token punctuation">]</span><span class="token punctuation">)</span>
+      cf<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <hr>
-<p><img src="https://gitee.com/dashing-brother/picture/raw/master/QQ%E5%9B%BE%E7%89%8720210226200724.jpg" alt="QQ图片20210226200724"></p>
+<p>使用与上面相同的方法将txt文件中车辆的经纬度提取出来，并且放在data.csv文件中，代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+     <span class="token builtin">float</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+     <span class="token builtin">float</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> ValueError<span class="token punctuation">:</span>
+     <span class="token keyword">break</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+     <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"data.csv"</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">,</span> newline<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cf<span class="token punctuation">:</span>
+         w <span class="token operator">=</span> csv<span class="token punctuation">.</span>writer<span class="token punctuation">(</span>cf<span class="token punctuation">)</span>
+         w<span class="token punctuation">.</span>writerow<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">float</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">float</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+         cf<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这部分数据的作用是用来在地图上绘制车辆的运行轨迹，这部分内容的完成使用到了folium库，一个用来绘制地图轨迹的库，在绘制前，我们需要先确定地图的范围，这一点的实现，我是通过以车辆所在的起始点为中心，在这个中心点附近划定一片区域，然后将车辆的经纬度导入，在地图上绘制出曲线。这部分的完成遇到的问题是数据的提取方式，数据不可以一行一行的进行读取存储，而是先将数据全部读取出来，然后将数据转化为一个二元矩阵。这部分功能的实现代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">first<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">"data.csv"</span><span class="token punctuation">)</span>
+first<span class="token operator">=</span>data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+m <span class="token operator">=</span> folium<span class="token punctuation">.</span>Map<span class="token punctuation">(</span>first<span class="token punctuation">,</span> zoom_start<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
+
+nd <span class="token operator">=</span> np<span class="token punctuation">.</span>genfromtxt<span class="token punctuation">(</span><span class="token string">"data.csv"</span><span class="token punctuation">,</span> delimiter<span class="token operator">=</span><span class="token string">','</span><span class="token punctuation">,</span> skip_header<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+location <span class="token operator">=</span>nd<span class="token punctuation">.</span>tolist<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+route <span class="token operator">=</span> folium<span class="token punctuation">.</span>PolyLine<span class="token punctuation">(</span> <span class="token comment">#polyline方法为将坐标用线段形式连接起来</span>
+
+location<span class="token punctuation">,</span> <span class="token comment">#将坐标点连接起来</span>
+
+weight<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token comment">#线的大小为3</span>
+
+color<span class="token operator">=</span><span class="token string">'orange'</span><span class="token punctuation">,</span> <span class="token comment">#线的颜色为橙色</span>
+
+opacity<span class="token operator">=</span><span class="token number">0.8</span><span class="token comment">#线的透明度</span>
+<span class="token punctuation">)</span><span class="token punctuation">.</span>add_to<span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token comment">#将这条线添加到刚才的区域m内</span>
+
+m<span class="token punctuation">.</span>save<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">r'D:\毕业设计'</span><span class="token punctuation">,</span> <span class="token string">'map.html'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最后将地图轨迹保存在了一个名为map.html的文件中。</p>
+<p>结果展示</p>
+<p><img src="https://gitee.com/dashing-brother/picture/raw/master/%E8%BD%A6%E8%BE%86%E8%BD%A8%E8%BF%B9.png" alt="车辆轨迹"></p>
 <hr>
-<p><img src="https://gitee.com/dashing-brother/picture/raw/master/QQ%E5%9B%BE%E7%89%8720210226200656.jpg" alt="QQ图片20210226200656"></p>
-<hr>
-<p><img src="https://gitee.com/dashing-brother/picture/raw/master/QQ%E5%9B%BE%E7%89%8720210226200728.jpg" alt="QQ图片20210226200728"></p>
-<hr>
-<p><img src="https://gitee.com/dashing-brother/picture/raw/master/QQ%E5%9B%BE%E7%89%8720210226200731.jpg" alt="QQ图片20210226200731"></p>
-<hr>
-<p><img src="https://gitee.com/dashing-brother/picture/raw/master/QQ%E5%9B%BE%E7%89%8720210226200735.jpg" alt="QQ图片20210226200735"></p>
-<hr>
-<p><img src="https://gitee.com/dashing-brother/picture/raw/master/QQ%E5%9B%BE%E7%89%8720210226200738.jpg" alt="QQ图片20210226200738"></p>
-<hr>
-<p><img src="https://gitee.com/dashing-brother/picture/raw/master/QQ%E5%9B%BE%E7%89%8720210226200743.jpg" alt="QQ图片20210226200743"></p>
+<p>最难的部分机器学习之故障检测，这部分内容我是使用sklearn中的one class svm完成的。</p>
 
                 
             </div>
@@ -586,7 +677,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lyasin.xyz/posts/25cb.html">https://lyasin.xyz/posts/25cb.html</a>
+                    <a href="https://lyasin.xyz/posts/3340.html">https://lyasin.xyz/posts/3340.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -624,8 +715,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/1106/">
-                                    <span class="chip bg-color">1106</span>
+                                <a href="/tags/%E6%97%A5%E5%B8%B8/">
+                                    <span class="chip bg-color">日常</span>
                                 </a>
                             
                         </div>
@@ -1058,9 +1149,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/3340.html">
                     <div class="card-image">
@@ -1077,9 +1169,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1092,6 +1184,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1110,32 +1203,28 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a722.html">
+                <a href="/posts/25cb.html">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/dashing-brother/picture/raw/master/l10.jpg" class="responsive-img" alt="牛客面经">
+                        <img src="https://gitee.com/dashing-brother/picture/raw/master/l15.jpg" class="responsive-img" alt="1106">
                         
-                        <span class="card-title">牛客面经</span>
+                        <span class="card-title">1106</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            面经
+                            chd1106
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-26
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%9D%A2%E7%BB%8F/" class="post-category">
-                                    面经
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            lyasin
                             
                         </span>
                     </div>
@@ -1143,8 +1232,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9D%A2%E7%BB%8F/">
-                        <span class="chip bg-color">面经</span>
+                    <a href="/tags/1106/">
+                        <span class="chip bg-color">1106</span>
                     </a>
                     
                 </div>
