@@ -651,6 +651,34 @@ m<span class="token punctuation">.</span>save<span class="token punctuation">(</
 <p><img src="https://gitee.com/dashing-brother/picture/raw/master/%E8%BD%A6%E8%BE%86%E8%BD%A8%E8%BF%B9.png" alt="车辆轨迹"></p>
 <hr>
 <p>最难的部分机器学习之故障检测，这部分内容我是使用sklearn中的one class svm完成的。</p>
+<p>sklearn:</p>
+<p>自2007年发布以来，scikit-learn已经成为Python重要的机器学习库了，scikit-learn简称sklearn，支持包括分类，回归，降维和聚类四大机器学习算法。还包括了特征提取，数据处理和模型评估者三大模块。</p>
+<p>sklearn是Scipy的扩展，建立在Numpy和matplolib库的基础上。利用这几大模块的优势，可以大大的提高机器学习的效率。</p>
+<p>sklearn拥有着完善的文档，上手容易，具有着丰富的API，在学术界颇受欢迎。sklearn已经封装了大量的机器学习算法，包括LIBSVM和LIBINEAR。同时sklearn内置了大量数据集，节省了获取和整理数据集的时间。</p>
+<p><img src="https://gitee.com/dashing-brother/picture/raw/master/sklearn.png" alt="sklearn"></p>
+<p>由图中，可以看到库的算法主要有四类：分类，回归，聚类，降维。其中：</p>
+<p>·    常用的回归：线性、决策树、SVM、KNN ；集成回归：随机森林、Adaboost、GradientBoosting、Bagging、ExtraTrees</p>
+<p>·    常用的分类：线性、决策树、SVM、KNN，朴素贝叶斯；集成分类：随机森林、Adaboost、GradientBoosting、Bagging、ExtraTrees</p>
+<p>·    常用聚类：k均值（K-means）、层次聚类（Hierarchical clustering）、DBSCAN</p>
+<p>·    常用降维：LinearDiscriminantAnalysis、PCA</p>
+<p>　　这个流程图代表：蓝色圆圈是判断条件，绿色方框是可以选择的算法，我们可以根据自己的数据特征和任务目标去找一条自己的操作路线。</p>
+<p>　　sklearn中包含众多数据预处理和特征工程相关的模块，虽然刚接触sklearn时，大家都会为其中包含的各种算法的广度深度所震惊，但其实sklearn六大板块中有两块都是关于数据预处理和特征工程的，两个板块互相交互，为建模之前的全部工程打下基础。</p>
+<p> <img src="https://gitee.com/dashing-brother/picture/raw/master/sklearn%20model.png" alt="sklearn model"></p>
+<p>·    模块preprocessing：几乎包含数据预处理的所有内容</p>
+<p>·    模块Impute：填补缺失值专用</p>
+<p>·    模块feature_selection：包含特征选择的各种方法的实践</p>
+<p>·    模块decomposition：包含降维算法</p>
+<p>传统的机器学习任务从开始到建模的一般流程就是：获取数据——数据预处理——训练模型——模型评估——预测，分类。</p>
+<h2 id="One-class-SVM"><a href="#One-class-SVM" class="headerlink" title="One-class SVM"></a>One-class SVM</h2><p>One-class SVM是sklearn离群检测中的一种方法，它有能力捕获数据集的形状,因此对于强非高斯数据有更加优秀的效果，例如两个截然分开的数据集。严格来说，一分类的SVM并不是一个异常点监测算法，而是一个奇异点检测算法：它的训练集不能包含异常样本，否则的话，可能在训练时影响边界的选取。但是，对于高维空间中的样本数据集，如果它们做不出有关分布特点的假设，One-class SVM将是一大利器。</p>
+<p>One-class SVM的主要参数和方法：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">sklearn</span><span class="token punctuation">.</span>svm<span class="token punctuation">.</span>OneClassSVM<span class="token punctuation">(</span>kernel<span class="token operator">=</span>’rbf’<span class="token punctuation">,</span> degree<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> gamma<span class="token operator">=</span>’auto’<span class="token punctuation">,</span> coef0<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> tol<span class="token operator">=</span><span class="token number">0.001</span><span class="token punctuation">,</span> nu<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">,</span> shrinking<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> cache_size<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> max_iter<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> random_state<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>参数：</p>
+<p>​     kernel：核函数（一般用高斯核）</p>
+<p>​     nu：设定训练误差（0， 1]</p>
+<p>方法：</p>
+<p>​     fit(x)：训练，根据训练样本和上面两个参数探测边界。（注意是无监督哦！）</p>
+<p>​     predict(x)：返回预测值，+1就是正常样本，-1为异常样本。</p>
+<p>​     decision_function(X)：返回各样本点到超平面的函数距离（signed distance）,正的为正常样本，负的为异常样本。</p>
 
                 
             </div>
